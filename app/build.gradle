@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.yto.template"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjava2Version"
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit2Version"
+    compile "com.squareup.retrofit2:converter-scalars:$rootProject.ext.retrofit2Version"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit2Version"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofit2Version"
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    compile "com.trello.rxlifecycle2:rxlifecycle:$rootProject.ext.rxlifecycle"
+    //compile "com.trello.rxlifecycle2:rxlifecycle-android:$rootProject.ext.rxlifecycle"
+    compile "com.trello.rxlifecycle2:rxlifecycle-components:$rootProject.ext.rxlifecycle"
+
+    //调试工具
+    compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
+    // 权限管理
+    implementation('com.github.hotchemi:permissionsdispatcher:2.4.0') { exclude module: 'support-v13' }
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
+    // 图片浏览
+    implementation 'com.github.chrisbanes.photoview:library:1.2.4'
+    // 图片加载
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+}
