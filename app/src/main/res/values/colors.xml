@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="red">#f16d7a</color>
+    <color name="green">#b7d28d</color>
+    <color name="blue">#b8f1ed</color>
+
+    <color name="app_color_desc">#858C96</color>
+    <color name="btn_normal">#222222</color>
+    <color name="btn_selected">#aaaaaa</color>
+    <color name="indicator_color">#ffdf00</color>
 </resources>

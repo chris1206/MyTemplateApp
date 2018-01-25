@@ -11,4 +11,18 @@
     <string name="parse_error">解析服务器响应数据失败</string>
     <string name="unknown_error">未知错误</string>
     <string name="response_return_error">服务器返回数据失败</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="border">Border</string>
+    <string name="shape">Shape</string>
+    <string name="circle">Circle</string>
+    <string name="square">Square</string>
+    <string name="color">Color</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="defaultColor">Default</string>
+
+    <string name="tabSegment_item_1_content">这是第一个 Item 的内容区</string>
+    <string name="tabSegment_item_2_content">这是第二个 Item 的内容区</string>
 </resources>

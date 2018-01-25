@@ -1,6 +1,7 @@
 package com.yto.template;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -9,8 +10,10 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +26,9 @@ import com.yto.template.module.bean.InitBean;
 import com.yto.template.module.bean.LoginBean;
 import com.yto.template.module.bean.UniqueKey;
 import com.yto.template.presenter.UserLoginPresenter;
+import com.yto.template.test.WaveActivity;
+import com.yto.template.test.touch_event.MyTextView;
+import com.yto.template.ui.MainActivity;
 import com.yto.template.utils.ToastUtils;
 import com.yto.template.utils.Utils;
 import com.yto.template.view.IUserLoginView;
@@ -31,10 +37,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class LoginActivity extends BaseActivity
-        implements IUserLoginView, NavigationView.OnNavigationItemSelectedListener {
-
+        implements IUserLoginView, NavigationView.OnNavigationItemSelectedListener,
+        View.OnClickListener, View.OnTouchListener{
+    public static final String TAG = "LoginActivity";
     private Button btn_login,btn_clear;
     private EditText et_username,et_password;
+    private MyTextView tv;
 
     private UserLoginPresenter mUserLoginPresenter = new UserLoginPresenter(this);
 
@@ -63,6 +71,9 @@ public class LoginActivity extends BaseActivity
                 mUserLoginPresenter.clear();
             }
         });
+
+        tv.setOnClickListener(this);
+        tv.setOnTouchListener(this);
 
     }
 
@@ -113,7 +124,7 @@ public class LoginActivity extends BaseActivity
     private void initView() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        tv = findViewById(R.id.tv);
         btn_login = findViewById(R.id.btn_login);
         btn_clear = findViewById(R.id.btn_clear);
         et_username = findViewById(R.id.et_username);
@@ -228,9 +239,9 @@ public class LoginActivity extends BaseActivity
     @Override
     public void toMainActivity(BasicResponse<LoginBean> resp) {
 
+        startActivity(new Intent(this, WaveActivity.class));
 
-
-        ToastUtils.show("可以登录了。。");
+//        ToastUtils.show("可以登录了。。");
     }
 
     @Override
@@ -242,4 +253,87 @@ public class LoginActivity extends BaseActivity
     public Context getContext() {
         return this;
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv:
+                startActivity(new Intent(this, MainActivity.class));
+                Log.e(TAG, "MyTextView Onclick");
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (v.getId()) {
+            case R.id.tv:
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        Log.e(TAG, "mytextview onTouch ACTION_DOWN");
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        Log.e(TAG, "mytextview onTouch ACTION_MOVE");
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Log.e(TAG, "mytextview onTouch ACTION_UP");
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        Log.e(TAG, "mytextview onTouch ACTION_CANCEL");
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+        return false;//返回false不拦截事件，事件向内层继续传
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(TAG, "onTouchEvent ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e(TAG, "onTouchEvent ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e(TAG, "onTouchEvent ACTION_UP");
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                Log.e(TAG, "onTouchEvent ACTION_CANCEL");
+                break;
+            default:
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(TAG, "dispatchTouchEvent ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e(TAG, "dispatchTouchEvent ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e(TAG, "dispatchTouchEvent ACTION_UP");
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                Log.e(TAG, "dispatchTouchEvent ACTION_CANCEL");
+                break;
+            default:
+                break;
+        }
+        return super.dispatchTouchEvent(ev);
+//        return false;
+    }
+
 }

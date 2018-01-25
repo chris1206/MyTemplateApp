@@ -53,4 +53,9 @@ dependencies {
     implementation 'com.github.chrisbanes.photoview:library:1.2.4'
     // 图片加载
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //引入常用组件库
+    compile 'com.qmuiteam:qmui:1.0.6'
+    //引入butterknife
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

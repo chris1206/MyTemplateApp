@@ -19,6 +19,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:text="18217338053"
         android:hint="请输入手机号"
         android:inputType="phone"
         android:textSize="14sp"
@@ -37,6 +38,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="12dp"
         android:ems="10"
+        android:text="111111"
         android:hint="请输入密码"
         android:inputType="textPassword"
         android:textSize="14sp"
@@ -101,5 +103,29 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_clear"
+        app:srcCompat="@drawable/ic_add_black_24dp" />
+
+    <com.yto.template.test.touch_event.MyTextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:text="跳转到标准化"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 </android.support.constraint.ConstraintLayout>
