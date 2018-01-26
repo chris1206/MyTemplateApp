@@ -1,21 +1,19 @@
 package com.yto.template.base;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.trello.rxlifecycle2.components.RxFragment;
 import com.yto.template.utils.ToastUtils;
 
 /**
- * Created by Chris on 2017/4/22.
+ * Created by Chris on 2018/1/26.
  */
 
-public abstract class BaseFragment extends RxFragment {
-
+public abstract class BaseV4Fragment extends Fragment {
     public View rootView;
     public LayoutInflater inflater;
 
