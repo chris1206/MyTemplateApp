@@ -33,8 +33,8 @@ public class UserBiz implements IUserBiz {
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),json.toString());
 
         IdeaApi.getApiService()
-//                .getLoginRequest(username,Utils.getMD5(password),device_id)//form表单形式提交
-                .getLogin(requestBody)//封装成json字符串并在Body中提交
+                .getLoginRequest(username,Utils.getMD5(password),device_id)//form表单形式提交
+//                .getLogin(requestBody)//封装成json字符串并在Body中提交
                 .subscribeOn(Schedulers.io())
                 //TODO:
                 .compose(((LoginActivity)ctx).<BasicResponse<LoginBean>>bindToLifecycle())

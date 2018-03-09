@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/white">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="#AAAAAA" />
+            //设置圆角
+            <!--<corners android:radius="20dp" />-->
+            <gradient
+                android:startColor="@color/white"
+                android:endColor="@color/white"
+                android:angle="0" />
+            <stroke
+                android:width="4dp"
+                android:color="#AAAAAA"
+            />
+        </shape>
+    </item>
+
+    <item>
+        <selector>
+            <item
+                android:drawable="@color/btn_selected"
+                android:state_pressed="true">
+            </item>
+            <item
+                android:drawable="@color/white"
+                android:state_pressed="false">
+            </item>
+        </selector>
+    </item>
+
+</ripple >

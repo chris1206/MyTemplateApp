@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.yto.template.ui.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/topbar_height"
-        app:title="@null"
-        android:background="@color/colorPrimaryDark"
-        android:theme="@style/ToolbarTheme">
-        <!--设置返回图标-->
-        <!--app:navigationIcon="@drawable/arrow_white"-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:text="@string/main_title"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-    </android.support.v7.widget.Toolbar>
+    <include layout="@layout/toolbar"/>
 
     <com.yto.template.customview.QMUITabSegment
         android:id="@+id/tabSegment"

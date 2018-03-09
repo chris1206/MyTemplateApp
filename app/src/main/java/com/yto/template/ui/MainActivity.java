@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
@@ -33,38 +34,8 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.contentViewPager) ViewPager mContentViewPager;
     //注意butterknife只能对view进行注解，toolbar不支持
     private Toolbar mTopBar;
-//    private Map<ContentPage, Fragment> mPageMap = new HashMap<>();
     private List<Fragment> fragmentList = new ArrayList<>();
-//    private ContentPage mDestPage = ContentPage.Item1;
     private MyPagerAdapter mPagerAdapter;
-//    private PagerAdapter mPagerAdapter = new PagerAdapter() {
-//        @Override
-//        public boolean isViewFromObject(View view, Object object) {
-//            return view == object;
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return ContentPage.SIZE;
-//        }
-//
-//        @Override
-//        public Object instantiateItem(final ViewGroup container, int position) {
-//            ContentPage page = ContentPage.getPage(position);
-//            View view = getPageView(page);
-//            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-//            container.addView(view, params);
-//            return view;
-//        }
-//
-//        @Override
-//        public void destroyItem(ViewGroup container, int position, Object object) {
-//            container.removeView((View) object);
-//        }
-//
-//    };
-
-
 
     @Override
     protected int getLayoutId() {
@@ -85,7 +56,7 @@ public class MainActivity extends BaseActivity {
 
     private void initAdapter() {
         fragmentList.add(new FragBasicComponet());
-        fragmentList.add(new FragInfoInput());
+//        fragmentList.add(new FragInfoInput());
         fragmentList.add(new FragInfoOutput());
         fragmentList.add(new FragInfoFeedback());
         fragmentList.add(new FragComposite());
@@ -106,28 +77,34 @@ public class MainActivity extends BaseActivity {
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav1_focus),
                 "常用组件", false
         );
+        tab1.setTextSize(24);
         QMUITabSegment.Tab tab2 = new QMUITabSegment.Tab(
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav2_unfocus),
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav2_focus),
                 "信息输入", false
         );
+        tab2.setTextSize(24);
         QMUITabSegment.Tab tab3 = new QMUITabSegment.Tab(
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav3_unfocus),
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav3_focus),
                 "信息输出", false
         );
+        tab3.setTextSize(24);
         QMUITabSegment.Tab tab4 = new QMUITabSegment.Tab(
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav4_unfocus),
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav4_focus),
                 "信息反馈", false
         );
+        tab4.setTextSize(24);
         QMUITabSegment.Tab tab5 = new QMUITabSegment.Tab(
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav5_unfocus),
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav5_focus),
                 "综合系列", false
         );
+        tab5.setTextSize(24);
         mTabSegment.setDefaultTabIconPosition(QMUITabSegment.ICON_POSITION_TOP);
-        mTabSegment.addTab(tab1).addTab(tab2).addTab(tab3).addTab(tab4).addTab(tab5);
+        mTabSegment.addTab(tab1).addTab(tab3).addTab(tab4).addTab(tab5);
+//                .addTab(tab3).addTab(tab4).addTab(tab5);
         mTabSegment.setupWithViewPager(mContentViewPager, false);
         mTabSegment.setMode(QMUITabSegment.MODE_FIXED);
 

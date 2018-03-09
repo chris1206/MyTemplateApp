@@ -56,7 +56,7 @@ public class LoginActivity extends BaseActivity
 
         initView();
 
-        initParams();
+//        initParams();
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,18 +3,18 @@
     package="com.yto.template">
 
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
-    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission-sdk-23 android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:name=".App"
@@ -24,6 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--android:name=".LoginActivity"-->
+        <!--android:name=".ui.MainActivity"-->
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
@@ -34,8 +36,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.WaveActivity"/>
-        <activity android:name=".ui.MainActivity"/>
+        <activity android:name=".test.WaveActivity" />
+        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.RadioActivity" />
+        <activity android:name=".ui.CheckboxActivity" />
+        <activity android:name=".ui.EditActivity" />
+        <activity android:name=".ui.SelectorActivity" />
+        <activity android:name=".ui.SearchViewActivity" />
+        <activity android:name=".ui.ScanActivity"></activity>
+        <activity android:name="com.tangxiaolv.telegramgallery.GalleryActivity" />
+        <activity android:name=".ui.GridActivity"/>
+        <activity android:name=".ui.NavigationActivity"/>
+        <activity android:name=".ui.SegmentActivity"/>
+        <activity android:name=".ui.TabActivity"/>
+        <activity android:name=".ui.ButtonActivity"/>
+        <activity android:name=".ui.IconActivity"/>
+        <activity android:name=".ui.ListActivity"/>
     </application>
 
 </manifest>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:button="@null"
+        android:text="选项一"
+        android:gravity="center"
+        android:background="@drawable/button_bg_selector"
+        />
+</LinearLayout>

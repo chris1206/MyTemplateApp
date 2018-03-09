@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_touch_bg"
+    android:id="@+id/rela_view">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/list_title"
+        android:textSize="13sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="13dp"
+        android:textColor="@color/btn_normal"
+        />
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:text="@string/list_subtitle"
+        android:textSize="13sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/btn_selected"
+        />
+
+    <View
+        android:layout_below="@id/tv_subtitle"
+        android:layout_marginTop="13dp"
+        android:layout_width="match_parent"
+        android:background="@color/transparent"
+        android:layout_height="1dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/right_arrow"/>
+
+</RelativeLayout>
