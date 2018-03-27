@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_dot"
+        android:layout_width="40dp"
+        android:layout_height="match_parent">
+        <View
+            android:id="@+id/top_line"
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:background="@color/line"
+            android:layout_centerHorizontal="true"
+            />
+
+
+        <ImageView
+            android:id="@+id/dot"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_line"
+            android:src="@mipmap/timeline_ico_point"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/line"
+            android:layout_below="@id/dot"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent">
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/transparent">
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="2016-01-13 20:00:00"
+                android:textColor="@color/version"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/time"
+                android:layout_below="@id/time"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="14dp"
+                android:text="信息展示"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignLeft="@id/time"
+                android:layout_below="@id/content">
+                <LinearLayout
+                    android:id="@+id/linear_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <TextView
+                        android:id="@+id/start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/content"
+                        android:layout_marginTop="14dp"
+                        android:text="开始时间"
+                        android:textColor="@color/version"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/start_time"
+                        android:layout_marginTop="14dp"
+                        android:text="结束时间"
+                        android:textColor="@color/version"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/duration_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/end_time"
+                        android:layout_marginTop="14dp"
+                        android:text="总计时长"
+                        android:textColor="@color/version"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/img0"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@mipmap/timeline_img_default"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:src="@mipmap/timeline_img_default"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:src="@mipmap/timeline_img_default"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/linear_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_below="@id/img0"
+                android:layout_alignLeft="@id/img0"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/loc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/icon_geo" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/loc"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_toRightOf="@id/loc"
+                    android:text="北京市顺义区物流园"
+                    android:textColor="@color/text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/operator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_address"
+                android:layout_marginTop="14dp"
+                android:text="操作人："
+                android:textColor="@color/version"
+                android:textSize="11sp"
+                android:visibility="gone"/>
+
+            <View
+                android:id="@+id/bottom_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignLeft="@id/content"
+                android:layout_below="@id/operator"
+
+                android:layout_marginTop="14dp"
+                android:background="@color/line" />
+
+
+
+        </LinearLayout>
+
+
+        <!--<RelativeLayout
+            android:layout_width="18dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_alignBottom="@id/bottom_line"
+            android:layout_below="@id/ll_dot"
+            android:gravity="center_horizontal"
+            android:background="#ffffff">
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_grey_reg" />
+        </RelativeLayout>-->
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

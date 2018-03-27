@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_rl_cp_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.yto.template.ui.CameraPreview
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" />
+    <!-- 网格线 -->
+    <com.yto.template.customview.CameraLine
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/id_cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lineWidth="1dp"
+        app:lineCrossWidth="1dp"
+        app:lineCrossLength="5dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/id_iv_flash_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:src="@mipmap/camera_flash_off"
+            android:onClick="onClick"
+            />
+
+        <ImageView
+            android:id="@+id/id_iv_config_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:src="@mipmap/camera_config"
+            android:onClick="onClick"
+            />
+
+        <ImageView
+            android:id="@+id/id_iv_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:src="@mipmap/camera_change"
+            android:onClick="onClick"
+            />
+        <ImageView
+            android:id="@+id/id_preview_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true" >
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:src="@mipmap/left_back_arrow"
+            android:onClick="onClick"
+             />
+        <!--
+                 <ImageView
+                     android:id="@+id/choose_picture_btn"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentBottom="true"
+                     android:layout_alignParentRight="true"
+                     android:layout_margin="10dp"
+                     android:layout_marginLeft="10dp"
+                     android:gravity="center"
+                     android:src="@mipmap/camera_config"
+                     android:onClick="onClick"
+                     />-->
+
+        <ImageView
+            android:id="@+id/id_iv_shutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:onClick="onClick"
+            android:src="@mipmap/camera_normal_new"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

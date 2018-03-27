@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg_color_lightgrey">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@null">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white">
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="9dp"
+                    android:text="组件说明"
+                    android:textSize="14sp"
+                    android:textColor="@color/btn_normal" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="6dp"
+                    android:textSize="12sp"
+                    android:text="常规预览：遮罩在当前页面上层显示，底部小圆点显示照片数量及当前查看图片位置，左右滑动查看其它图片，点击屏幕退出预览。\n
+\n带信息预览：新开页面显示，顶部数字显示照片数量及当前查看图片位置，左右滑动查看其它图片，点击屏幕收起上下信息栏，点击左上角回退预览"
+                    android:textColor="@color/btn_selected" />
+
+                <View
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/transparent"
+                    android:layout_height="1dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="9dp"
+                android:textSize="14sp"
+                android:text="图片预览"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="13dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="10dp"
+                android:textSize="12sp"
+                android:text="请点击下方按钮查看效果"
+                android:textColor="@color/btn_selected" />
+            <TextView
+                android:id="@+id/tv_normal_preview"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:onClick="normalPreview"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="常规预览"
+                android:textColor="@color/btn_normal" />
+            <TextView
+                android:id="@+id/tv_info_preview"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:onClick="infoPreview"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="带信息预览"
+                android:textColor="@color/btn_normal" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg_color_lightgrey">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@null">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white">
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="9dp"
+                    android:text="组件说明"
+                    android:textSize="14sp"
+                    android:textColor="@color/btn_normal" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="6dp"
+                    android:textSize="12sp"
+                    android:text="倒序排列"
+                    android:textColor="@color/btn_selected" />
+
+                <View
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/transparent"
+                    android:layout_height="1dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="9dp"
+                android:textSize="14sp"
+                android:text="常用时间轴"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <include layout="@layout/waybillevent_list_item"/>
+
+            <include layout="@layout/waybillevent_list_item2"/>
+
+            <include layout="@layout/waybillevent_list_item2"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -46,7 +46,7 @@ public class CheckboxActivity extends BaseActivity {
         dataList.add("选项四");
         dataList.add("选项五");
         dataList.add("禁选项");
-        MyAdapter adapter = new MyAdapter(dataList);
+        MyAdapter adapter = new MyAdapter(dataList,3);
 
         recyclerView.setAdapter(adapter);
         MyItemDecoration myItemDecoration = new MyItemDecoration();

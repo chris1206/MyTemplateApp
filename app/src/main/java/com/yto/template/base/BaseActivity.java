@@ -7,11 +7,13 @@ import android.view.Window;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.yto.template.utils.ACache;
+import com.yto.template.utils.DialogUtil;
 import com.yto.template.utils.ToastUtils;
 
 public abstract class BaseActivity extends RxAppCompatActivity {
 
     protected ACache mCache;
+    DialogUtil dialogUtil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,7 @@ public abstract class BaseActivity extends RxAppCompatActivity {
 //        QMUIStatusBarHelper.translucent(this); // 沉浸式状态栏
         setContentView(getLayoutId());
         mCache = ACache.get(getApplicationContext());
+        dialogUtil = new DialogUtil();
         init(savedInstanceState);
     }
     protected void showToast(String msg) {

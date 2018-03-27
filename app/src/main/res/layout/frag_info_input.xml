@@ -48,9 +48,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
         <RelativeLayout
@@ -82,9 +82,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
         <RelativeLayout
@@ -116,9 +116,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
         <RelativeLayout
@@ -150,9 +150,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
         <RelativeLayout
@@ -184,9 +184,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
         <RelativeLayout
@@ -218,9 +218,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
         <RelativeLayout
@@ -253,9 +253,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
         <RelativeLayout
@@ -287,9 +287,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
         <RelativeLayout
@@ -321,9 +321,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"/>
-            <view android:layout_width="match_parent"
+            <TextView android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:color="#999999"
+                android:background="#999999"
                 android:layout_alignParentBottom="true"/>
         </RelativeLayout>
     </LinearLayout>

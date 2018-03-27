@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/common_bg_color_lightgrey"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:text="单拍模式"
+        android:textSize="16sp"
+        android:textColor="@color/text"
+        android:gravity="center"
+        android:background="@color/white"
+        android:onClick="singleCapture"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:text="多拍模式"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/text"
+        android:background="@color/white"
+        android:onClick="multiCapture"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:text="连拍模式"
+        android:textSize="16sp"
+        android:textColor="@color/text"
+        android:gravity="center"
+        android:background="@color/white"
+        android:onClick="multiCapture"/>
+
+</LinearLayout>

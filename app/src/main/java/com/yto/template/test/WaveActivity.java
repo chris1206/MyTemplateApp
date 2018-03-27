@@ -1,7 +1,11 @@
 package com.yto.template.test;
 
+import android.content.ContentValues;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.widget.CompoundButtonCompat;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -11,6 +15,7 @@ import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
 import com.yto.template.customview.WaveHelper;
 import com.yto.template.customview.WaveView;
+import com.yto.template.ui.MainActivity;
 
 /**
  * Created by Chris on 2018/1/16.
@@ -27,11 +32,32 @@ public class WaveActivity extends BaseActivity {
         return R.layout.activity_wave;
     }
 
+    //通过Handler传递数据
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0:
+                    ContentValues cv = (ContentValues) msg.obj;
+//                    database = new Database(WaveActivity.this);
+//                    dbRead = database.getReadableDatabase();
+//                    cursorRead = dbRead.query("MyMessage", null,"body=? and date=?", new String[]{(String) cv.get("body"), (String) cv.get("date")}, null, null, null);
+//                    if (cursorRead.getCount() == 0) {
+//                        database = new Database(WaveActivity.this);      //这里是自己创建的一个数据库，把监听到的短信保存到这数据库
+//                        dbWrite = database.getWritableDatabase();        //
+//                        dbWrite.insert("MyMessage", null, cv);           //
+//                        etNumber.setText((String) cv.get("address"));
+//                        getContentResolver().delete(Uri.parse("content://sms/inbox"), "body=? and date=?",new String[]{(String) cv.get("body"), (String) cv.get("date")});//这里把那条数据给删除了，起到截获短信效果
+//                        refreshListView();
+//                    }
+            }
+        }
+    };
     @Override
     protected void init(Bundle savedInstanceState) {
         final WaveView waveView = (WaveView) findViewById(R.id.wave);
         waveView.setBorder(mBorderWidth, mBorderColor);
-
+//        SMSContentObserver smsContentObserver = new SMSContentObserver(this, mHandler);
+//        getContentResolver().registerContentObserver(Uri.parse("content://sms/inbox"), true, smsContentObserver);
         mWaveHelper = new WaveHelper(waveView);
 
         ((RadioGroup) findViewById(R.id.shapeChoice))

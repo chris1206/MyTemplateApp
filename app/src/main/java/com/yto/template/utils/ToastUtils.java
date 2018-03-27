@@ -2,9 +2,13 @@ package com.yto.template.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yto.template.App;
+import com.yto.template.R;
 
 /**
  * Created by Chris on 2017/11/30.
@@ -13,6 +17,7 @@ import com.yto.template.App;
 public class ToastUtils {
     private static Context context = App.getAppContext();
     private static Toast toast;
+    private static Toast sutToast;
 
     public static void show(int resId) {
         show(context.getResources().getText(resId), Toast.LENGTH_SHORT);
@@ -59,5 +64,23 @@ public class ToastUtils {
 
     public static void show(String format, int duration, Object... args) {
         show(String.format(format, args), duration);
+    }
+
+    public static void showCustom(CharSequence text,int duration){
+        text = TextUtils.isEmpty(text)?"注册成功":text;
+        TextView textView = null;
+        if(sutToast == null){
+            sutToast = Toast.makeText(context, text, duration);
+            View v = View.inflate(context, R.layout.toast_layout,null);
+            textView = (TextView) v.findViewById(R.id.tv_message);
+            ImageView iv_toast = (ImageView) v.findViewById(R.id.iv_toast);
+            textView.setText(text);
+            sutToast.setView(v);
+        }else{
+            if(textView!=null){
+                textView.setText(text);
+            }
+        }
+        sutToast.show();
     }
 }

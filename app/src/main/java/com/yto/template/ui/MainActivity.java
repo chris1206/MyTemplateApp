@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
 
     private void initAdapter() {
         fragmentList.add(new FragBasicComponet());
-//        fragmentList.add(new FragInfoInput());
+        fragmentList.add(new FragInfoInput());
         fragmentList.add(new FragInfoOutput());
         fragmentList.add(new FragInfoFeedback());
         fragmentList.add(new FragComposite());
@@ -103,8 +103,7 @@ public class MainActivity extends BaseActivity {
         );
         tab5.setTextSize(24);
         mTabSegment.setDefaultTabIconPosition(QMUITabSegment.ICON_POSITION_TOP);
-        mTabSegment.addTab(tab1).addTab(tab3).addTab(tab4).addTab(tab5);
-//                .addTab(tab3).addTab(tab4).addTab(tab5);
+        mTabSegment.addTab(tab1).addTab(tab2).addTab(tab3).addTab(tab4).addTab(tab5);
         mTabSegment.setupWithViewPager(mContentViewPager, false);
         mTabSegment.setMode(QMUITabSegment.MODE_FIXED);
 
@@ -211,4 +210,15 @@ public class MainActivity extends BaseActivity {
 //            return position;
 //        }
 //    }
+
+//    在Activity里面注册个 ContentObserver
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//    }
+
+
+
+
 }

@@ -33,8 +33,10 @@ public class MyAdapter extends RecyclerView.Adapter{
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(type == 0){
             return new BodyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_text_layout, null));
-        }else{
+        }else if(type == 1){
             return new BodyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ver_layout, parent,false));
+        }else {
+            return new BodyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, null));
         }
 
     }

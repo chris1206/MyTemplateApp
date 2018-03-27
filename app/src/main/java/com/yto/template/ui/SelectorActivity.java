@@ -330,6 +330,7 @@ public class SelectorActivity extends BaseActivity {
                 tv_selector_provincial.setText(items[position]);
                 if(provincial_pop!=null&&provincial_pop.isShowing()){
                     provincial_pop.dismiss();
+                    darkenBackground(1f);
                 }
             }
         });
