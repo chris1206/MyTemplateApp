@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yto.template.R;
@@ -19,8 +20,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CheckboxActivity extends BaseActivity {
+    @BindView(R.id.title)
+    TextView title;
     @BindView(R.id.recycle_view)
     RecyclerView recyclerView;
 
@@ -37,6 +41,7 @@ public class CheckboxActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("复选框");
         vList = new ArrayList<>();
         vList2 = new ArrayList<>();
         List<String> dataList = new ArrayList<>();
@@ -88,5 +93,9 @@ public class CheckboxActivity extends BaseActivity {
                 }
             }
         });
+    }
+    @OnClick(R.id.back)
+    void onClick(){
+        onBackPressed();
     }
 }

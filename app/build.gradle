@@ -21,6 +21,12 @@ android {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            //说明so的路径为该libs路径，关联所有地图SDK的so文件
+        }
+    }
 }
 
 dependencies {
@@ -65,7 +71,9 @@ dependencies {
     compile 'com.android.support:multidex:1.0.3'
     //动态权限申请
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    //图表框架
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 
-
-//    compile 'com.squareup:javapoet:1.10.0'
+    //    compile 'com.squareup:javapoet:1.10.0'
+    implementation files('libs/BaiduLBS_Android.jar')
 }

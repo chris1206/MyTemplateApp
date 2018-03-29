@@ -2,6 +2,7 @@ package com.yto.template.ui;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,6 +50,8 @@ import butterknife.OnClick;
 
 public class SelectorActivity extends BaseActivity {
     public static final String TAG = "SelectorActivity";
+    @BindView(R.id.title)
+    TextView title;
     @BindView(R.id.tv_selector_common)
     TextView tv_selector_common;
     @BindView(R.id.tv_selector_time)
@@ -85,6 +88,7 @@ public class SelectorActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("选择器");
         sItem.add("选项一");
         sItem.add("选项二");
         sItem.add("选项三");
@@ -120,9 +124,12 @@ public class SelectorActivity extends BaseActivity {
 
 
 
-    @OnClick({R.id.tv_selector_common,R.id.tv_selector_time,R.id.tv_selector_day,R.id.tv_selector_time_day,R.id.tv_selector_provincial})
+    @OnClick({R.id.back,R.id.tv_selector_common,R.id.tv_selector_time,R.id.tv_selector_day,R.id.tv_selector_time_day,R.id.tv_selector_provincial})
     void onClick(View view){
         switch (view.getId()){
+            case R.id.back:
+                onBackPressed();
+                break;
             case R.id.tv_selector_common:
                 if(pvCustomOptions!=null){
                     pvCustomOptions.show();
@@ -320,6 +327,16 @@ public class SelectorActivity extends BaseActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         provincial_pop.setFocusable(true);
         provincial_pop.setOutsideTouchable(true);
+        provincial_pop.setBackgroundDrawable(new BitmapDrawable());
+
+        provincial_pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                if(!provincial_pop.isShowing()){
+                    darkenBackground(1f);
+                }
+            }
+        });
 
         GridView gridview = contentview.findViewById(R.id.gridview);
         Adapter adapter = new ArrayAdapter<String>(this,R.layout.vehicle_gridview_item, Arrays.asList(items));
@@ -330,10 +347,11 @@ public class SelectorActivity extends BaseActivity {
                 tv_selector_provincial.setText(items[position]);
                 if(provincial_pop!=null&&provincial_pop.isShowing()){
                     provincial_pop.dismiss();
-                    darkenBackground(1f);
+
                 }
             }
         });
+
         provincial_pop.setAnimationStyle(R.style.MyPopupWindow_anim_style);
     }
 

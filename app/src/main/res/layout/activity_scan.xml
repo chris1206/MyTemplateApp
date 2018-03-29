@@ -65,4 +65,5 @@
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
+    <include layout="@layout/title_bar_black"/>
 </RelativeLayout>

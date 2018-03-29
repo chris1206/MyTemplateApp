@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/srl_refresh">
-    <RelativeLayout
-        android:id="@+id/rl_reslt"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/title_bar_black"/>
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
-        <TextView
-            android:id="@+id/tv_result_msg"
+        android:id="@+id/srl_refresh">
+        <RelativeLayout
+            android:id="@+id/rl_reslt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="未搜索到相关信息"
-            android:gravity="center"
-            android:layout_centerVertical="true"/>
-        <ImageView
-            android:id="@+id/iv_result_img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/search"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/tv_result_msg"
-            android:layout_marginBottom="10dp"/>
-        <TextView
-            android:id="@+id/tv_result_take"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_result_msg"
-            android:text="点击刷新重试"
-            android:textColor="@color/blue"
-            android:gravity="center"
-            android:layout_marginTop="5dp"
-            android:visibility="gone"/>
-    </RelativeLayout>
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/tv_result_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未搜索到相关信息"
+                android:gravity="center"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/iv_result_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/search"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/tv_result_msg"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/tv_result_take"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_result_msg"
+                android:text="点击刷新重试"
+                android:textColor="@color/blue"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
-</android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

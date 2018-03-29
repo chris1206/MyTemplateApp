@@ -1,6 +1,7 @@
 package com.yto.template.ui;
 
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -27,6 +28,8 @@ public class ActionSheetActivity extends BaseActivity {
 
     private PopupWindow normalPop;
     private PopupWindow customPop;
+    @BindView(R.id.title)
+    TextView title;
 
     @Override
     protected int getLayoutId() {
@@ -36,6 +39,7 @@ public class ActionSheetActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("操作面板");
         initNormalPop();
         initCustomPop();
     }
@@ -64,12 +68,21 @@ public class ActionSheetActivity extends BaseActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         normalPop.setFocusable(true);
         normalPop.setOutsideTouchable(true);
+        normalPop.setBackgroundDrawable(new BitmapDrawable());
+
+        normalPop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                if(!normalPop.isShowing()){
+                    darkenBackground(1f);
+                }
+            }
+        });
         TextView tv_pop_cancle = contentview.findViewById(R.id.tv_pop_cancle);
         tv_pop_cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 normalPop.dismiss();
-                darkenBackground(1f);
             }
         });
 
@@ -83,12 +96,21 @@ public class ActionSheetActivity extends BaseActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         customPop.setFocusable(true);
         customPop.setOutsideTouchable(true);
+        customPop.setBackgroundDrawable(new BitmapDrawable());
+
+        customPop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                if(!customPop.isShowing()){
+                    darkenBackground(1f);
+                }
+            }
+        });
         TextView tv_pop_cus_cancle = contentview.findViewById(R.id.tv_pop_cus_cancle);
         tv_pop_cus_cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 customPop.dismiss();
-                darkenBackground(1f);
             }
         });
 

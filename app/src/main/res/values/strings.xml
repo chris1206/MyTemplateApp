@@ -28,4 +28,7 @@
     <string name="main_title">移动APP组件标准化常用控件库</string>
     <string name="list_title">宫格</string>
     <string name="list_subtitle">Grid</string>
+
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
 </resources>

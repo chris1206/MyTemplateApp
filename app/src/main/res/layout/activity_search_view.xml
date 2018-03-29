@@ -7,6 +7,7 @@
     tools:context="com.yto.template.ui.SearchViewActivity"
     android:orientation="vertical"
     android:background="@color/background">
+    <include layout="@layout/title_bar_black"/>
     <TextView
         android:id="@+id/ddd"
         android:layout_width="match_parent"
@@ -45,6 +46,7 @@
             android:inputType="text"
             android:imeOptions="actionSearch"
             android:drawableLeft="@mipmap/search"
+            android:drawablePadding="5dp"
             />
     </LinearLayout>
     <TextView
@@ -76,6 +78,7 @@
             android:inputType="text"
             android:imeOptions="actionSearch"
             android:drawableLeft="@mipmap/search"
+            android:drawablePadding="5dp"
             />
         <ImageView
             android:id="@+id/iv_scan"
@@ -115,6 +118,7 @@
             android:imeOptions="actionSearch"
             android:drawableLeft="@mipmap/search"
             android:drawableRight="@mipmap/scan"
+            android:drawablePadding="5dp"
             />
     </LinearLayout>
     <TextView
@@ -154,6 +158,7 @@
             android:inputType="text"
             android:imeOptions="actionSearch"
             android:drawableLeft="@mipmap/search"
+            android:drawablePadding="5dp"
             />
         <TextView
             android:id="@+id/tv_one_cancle"
@@ -219,6 +224,7 @@
             android:inputType="text"
             android:imeOptions="actionSearch"
             android:drawableLeft="@mipmap/search"
+            android:drawablePadding="5dp"
             />
         <TextView
             android:id="@+id/tv_two_cancle"

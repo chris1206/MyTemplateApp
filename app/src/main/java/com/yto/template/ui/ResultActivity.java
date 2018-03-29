@@ -16,7 +16,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ResultActivity extends BaseActivity {
-
+    @BindView(R.id.title)
+    TextView title;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_result;
@@ -25,6 +26,7 @@ public class ResultActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("结果页");
     }
     @OnClick({R.id.tv_null_result,R.id.tv_not_result})
     void onClick(View view){

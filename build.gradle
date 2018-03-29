@@ -1,5 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+//apply from:"settings.gradle"
+
 ext {
     supportLibVersion = '25.1.0'
     butterknifeVersion = '8.5.1'
@@ -10,6 +12,8 @@ ext {
 }
 
 buildscript {
+
+//    rootProject.absoluteProjectPath()
     
     repositories {
         google()
@@ -27,6 +31,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 

@@ -17,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class PreviewActivity extends Activity {
+    String filePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,6 @@ public class PreviewActivity extends Activity {
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_preview);
-
         ImageView id_iv_preview_photo = (ImageView) this.findViewById(R.id.id_iv_preview_photo);
 
         ImageView id_iv_cancel = (ImageView) this.findViewById(R.id.id_iv_cancel);
@@ -39,7 +39,10 @@ public class PreviewActivity extends Activity {
         id_iv_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.putExtra("filePath", filePath);
+                setResult(212,intent);
+                finish();
             }
         });
 
@@ -47,7 +50,7 @@ public class PreviewActivity extends Activity {
         if (intent != null) {
             //byte [] bis=intent.getByteArrayExtra("bitmapByte");
 
-            String filePath = intent.getStringExtra("filePath");
+            filePath = intent.getStringExtra("filePath");
             // Toast.makeText(this, "图片加载filePath:"+filePath, Toast.LENGTH_SHORT).show();
             id_iv_preview_photo.setImageBitmap(getBitmapByUrl(filePath));
         } else {

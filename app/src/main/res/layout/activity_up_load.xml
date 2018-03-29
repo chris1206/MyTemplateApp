@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="com.yto.template.ui.UpLoadActivity">
+
+    <include layout="@layout/title_bar_black"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="拍照上传"
+        android:textSize="20sp"
+        android:textColor="#333333"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"/>
+
+    <GridView
+        android:id="@+id/gv_take"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="5dp"
+        android:numColumns="3"
+        android:verticalSpacing="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="拍照或图片上传"
+        android:textSize="20sp"
+        android:textColor="#333333"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"/>
+    <GridView
+        android:id="@+id/gv_take_photo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="5dp"
+        android:numColumns="3"
+        android:verticalSpacing="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"/>
+</LinearLayout>

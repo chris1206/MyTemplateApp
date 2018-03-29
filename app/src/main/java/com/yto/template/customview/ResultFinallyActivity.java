@@ -22,7 +22,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ResultFinallyActivity extends BaseActivity {
-
+    @BindView(R.id.title)
+    TextView title;
     @BindView(R.id.srl_refresh)
     SwipeRefreshLayout srl_refresh;
     @BindView(R.id.rl_reslt)
@@ -46,6 +47,15 @@ public class ResultFinallyActivity extends BaseActivity {
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
         from = getIntent().getStringExtra("from");
+        if(from.equals("not")){
+            title.setText("搜索无结果");
+        }else if(from.equals("nure")){
+            title.setText("内容为空");
+        }else if(from.equals("net_exc")){
+            title.setText("网络异常");
+        }else if(from.equals("not_net")){
+            title.setText("tv_not_net");
+        }
         hanler = new MyHanler();
         srl_refresh.setRefreshing(true);
         getData();

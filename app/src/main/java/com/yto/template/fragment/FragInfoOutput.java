@@ -15,6 +15,7 @@ import com.yto.template.base.BaseV4Fragment;
 import com.yto.template.module.bean.SimpleListBean;
 import com.yto.template.ui.ButtonActivity;
 import com.yto.template.ui.CardActivity;
+import com.yto.template.ui.ChartActivity;
 import com.yto.template.ui.GridActivity;
 import com.yto.template.ui.IconActivity;
 import com.yto.template.ui.ImagePreviewActivity;
@@ -102,9 +103,9 @@ public class FragInfoOutput extends BaseV4Fragment {
                         case 3://跳转图片预览
                             startActivity(new Intent(mContext, ImagePreviewActivity.class));
                             break;
-//                        case 4://跳转图表
-//                            startActivity(new Intent(mContext, ButtonActivity.class));
-//                            break;
+                        case 4://跳转图表
+                            startActivity(new Intent(mContext, ChartActivity.class));
+                            break;
                         default:
                             break;
                     }

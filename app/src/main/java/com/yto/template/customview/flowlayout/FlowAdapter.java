@@ -19,7 +19,7 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<String> list;
     private Context context;
     private int type = 0;
-
+    private OnItemClickListen onItemClickListen;
     public FlowAdapter(Context context,List<String> list) {
         this.list = list;
         this.context = context;
@@ -32,9 +32,8 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(type == 1){
-            return new MyHolder(View.inflate(context, R.layout.flow_item, null));
-        }else return new MyHolder(View.inflate(context, R.layout.flow_item_one, null));
+        if(type == 1) return new MyHolder(View.inflate(context, R.layout.flow_item, null));
+        else return new MyHolder(View.inflate(context, R.layout.flow_item_one, null));
     }
 
     @Override
@@ -45,6 +44,7 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, list.get(position), Toast.LENGTH_SHORT).show();
+                onItemClickListen.onItemClick(v,position);
             }
         });
     }
@@ -63,4 +63,13 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             text = (TextView) itemView.findViewById(R.id.flow_text);
         }
     }
+
+    public void setItemClickListen(OnItemClickListen onItemClickListen){
+        this.onItemClickListen = onItemClickListen;
+    }
+
+    public interface OnItemClickListen{
+        void onItemClick(View view,int position);
+    }
+
 }

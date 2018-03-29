@@ -43,7 +43,7 @@
             android:id="@+id/iv_dialog_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@mipmap/defult"
+            android:src="@mipmap/defult_img"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 

@@ -29,6 +29,8 @@ public class NoticeBarActivity extends BaseActivity {
     LinearLayout ll_has_cancle_notify;
     @BindView(R.id.iv_cancle)
     ImageView iv_cancle;
+    @BindView(R.id.title)
+    TextView title;
 
 
 
@@ -42,6 +44,7 @@ public class NoticeBarActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("通知栏");
         handle = new MyHandle();
         cancleNotif();
     }

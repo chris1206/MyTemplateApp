@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yto.template">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -16,6 +18,20 @@
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <!-- 照相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+    <!-- 闪光灯权限 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-permission-sdk-23 android:name="android.permission.FLASHLIGHT" />
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    //获取统计数据
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    //读取系统信息，包含系统版本等信息，用作统计
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -24,11 +40,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--android:name=".LoginActivity"-->
-        <!--android:name=".ui.MainActivity"-->
+
+        <!-- android:name=".LoginActivity" -->
+        <!-- android:name=".ui.MainActivity" -->
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,22 +54,127 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.WaveActivity" />
-        <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ui.RadioActivity" />
-        <activity android:name=".ui.CheckboxActivity" />
-        <activity android:name=".ui.EditActivity" />
-        <activity android:name=".ui.SelectorActivity" />
-        <activity android:name=".ui.SearchViewActivity" />
-        <activity android:name=".ui.ScanActivity"></activity>
+        <activity
+            android:name=".test.WaveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.RadioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.CheckboxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.EditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SelectorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SearchViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ScanActivity"
+            android:screenOrientation="portrait" />
         <activity android:name="com.tangxiaolv.telegramgallery.GalleryActivity" />
-        <activity android:name=".ui.GridActivity"/>
-        <activity android:name=".ui.NavigationActivity"/>
-        <activity android:name=".ui.SegmentActivity"/>
-        <activity android:name=".ui.TabActivity"/>
-        <activity android:name=".ui.ButtonActivity"/>
-        <activity android:name=".ui.IconActivity"/>
-        <activity android:name=".ui.ListActivity"/>
+        <activity
+            android:name=".ui.GridActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.NavigationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.SegmentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.TabActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ButtonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.IconActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.NoticeBarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ModalBoxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ActionSheetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.LoadingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ToastActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".customview.ResultFinallyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ExceptionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.PhotoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.CameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.PreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.CardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.TimeLineActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.QRCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.FullScreenBarView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.FrameActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 百度地图key_release -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="pxSBe8fRTpkOO3kjSGZHhxH2qtVlI1jB" />
+
+        <activity
+            android:name=".ui.MapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.RefreshActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ImagePreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.NormalPreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.InfoPreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.UpLoadActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.KeyboardActivity"></activity>
+        <activity android:name=".ui.ChartActivity" />
+        <activity android:name=".ui.Camera2Activity" />
     </application>
 
 </manifest>

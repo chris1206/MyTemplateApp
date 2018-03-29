@@ -30,10 +30,13 @@
     <color name="text_hint">#bbbbbb</color>
     <color name="stroke_disable">#f5f5f5</color>
 
-    <color name="background">#dddddd</color>
+    <color name="background">#eeeeee</color>
     <color name="text">#444444</color>
     <color name="grey">#C7C8CA</color>
     <color name="version">#999999</color>
     <color name="line" >#dddddd</color>
+
+    <color name="notic">#f5f895</color>
+    <color name="notic_text">#ff5e00</color>
 
 </resources>

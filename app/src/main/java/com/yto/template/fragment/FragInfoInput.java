@@ -8,11 +8,13 @@ import com.yto.template.R;
 import com.yto.template.base.BaseV4Fragment;
 import com.yto.template.ui.CheckboxActivity;
 import com.yto.template.ui.EditActivity;
+import com.yto.template.ui.KeyboardActivity;
 import com.yto.template.ui.PhotoActivity;
 import com.yto.template.ui.RadioActivity;
 import com.yto.template.ui.ScanActivity;
 import com.yto.template.ui.SearchViewActivity;
 import com.yto.template.ui.SelectorActivity;
+import com.yto.template.ui.UpLoadActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -57,8 +59,10 @@ public class FragInfoInput extends BaseV4Fragment {
                 startActivity(new Intent(getActivity(), PhotoActivity.class));
                 break;
             case R.id.rl_to_upload:
+                startActivity(new Intent(getActivity(), UpLoadActivity.class));
                 break;
             case R.id.rl_to_keyboard:
+                startActivity(new Intent(getActivity(), KeyboardActivity.class));
                 break;
         }
     }

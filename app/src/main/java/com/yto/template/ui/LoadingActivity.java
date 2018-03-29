@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
@@ -16,6 +17,8 @@ public class LoadingActivity extends BaseActivity {
 
     @BindView(R.id.ll_progress)
     LinearLayout ll_progress;
+    @BindView(R.id.title)
+    TextView title;
 
     @Override
     protected int getLayoutId() {
@@ -25,6 +28,7 @@ public class LoadingActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("加载");
     }
     @OnClick({R.id.iv_pro_cancle})
     void onClick(View view){

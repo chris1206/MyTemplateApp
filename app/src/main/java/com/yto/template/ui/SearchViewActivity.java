@@ -25,6 +25,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SearchViewActivity extends BaseActivity {
+    @BindView(R.id.title)
+    TextView title;
     @BindView(R.id.rv_one)
     RecyclerView rv_one;
     @BindView(R.id.xet_histroy_one)
@@ -35,7 +37,7 @@ public class SearchViewActivity extends BaseActivity {
     @BindView(R.id.rv_two)
     RecyclerView rv_two;
     @BindView(R.id.xet_histroy_two)
-    TextView xet_histroy_two;
+    XEditText xet_histroy_two;
 
     private List<String> list = new ArrayList<>();
     private FlowAdapter flowAdapter;
@@ -50,6 +52,7 @@ public class SearchViewActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("搜索栏");
         list.add("A20170102fff");
         list.add("A201701");
         list.add("A201701");
@@ -66,11 +69,29 @@ public class SearchViewActivity extends BaseActivity {
         rv_two.addItemDecoration(new MyItemDecoration(1));
         rv_two.setLayoutManager(linearLayoutManager);
         rv_two.setAdapter(tflowAdapter);
+
+        flowAdapter.setItemClickListen(new FlowAdapter.OnItemClickListen() {
+            @Override
+            public void onItemClick(View view, int position) {
+                xet_histroy_one.setText(list.get(position));
+            }
+        });
+
+        tflowAdapter.setItemClickListen(new FlowAdapter.OnItemClickListen() {
+            @Override
+            public void onItemClick(View view, int position) {
+                xet_histroy_two.setText(tlist.get(position));
+            }
+        });
+
     }
 
-    @OnClick({R.id.tv_one_cancle,R.id.delete,R.id.tv_two_cancle})
+    @OnClick({R.id.back,R.id.tv_one_cancle,R.id.delete,R.id.tv_two_cancle})
     void onClick(View view){
         switch (view.getId()) {
+            case R.id.back:
+                onBackPressed();
+                break;
             case R.id.delete:
                 list.clear();
                 flowAdapter.notifyDataSetChanged();

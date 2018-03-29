@@ -6,6 +6,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yto.template.R;
@@ -13,9 +14,14 @@ import com.yto.template.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class RadioActivity extends BaseActivity {
     public static final String TAG = "RadioActivity";
+
+    @BindView(R.id.title)
+    TextView title;
+
     @BindView(R.id.radio_first_single)
     CheckBox radio_first_single;
 
@@ -47,13 +53,13 @@ public class RadioActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
-
+        title.setText("单选框");
         radio_first_single.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!isChecked){
-                    radio_first_single.setChecked(true);
-                }
+//                if(!isChecked){
+//                    radio_first_single.setChecked(true);
+//                }
                 Toast.makeText(RadioActivity.this,"选中了单选---选项一",Toast.LENGTH_SHORT).show();
             }
         });
@@ -80,9 +86,9 @@ public class RadioActivity extends BaseActivity {
         radio_first_alone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!isChecked){
-                    radio_first_alone.setChecked(true);
-                }
+//                if(!isChecked){
+//                    radio_first_alone.setChecked(true);
+//                }
                 Toast.makeText(RadioActivity.this,"选中了单独使用",Toast.LENGTH_SHORT).show();
             }
         });
@@ -100,4 +106,10 @@ public class RadioActivity extends BaseActivity {
             }
         });
     }
+
+    @OnClick(R.id.back)
+    void onClick(){
+        onBackPressed();
+    }
+
 }

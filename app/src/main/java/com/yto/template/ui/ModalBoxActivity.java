@@ -22,10 +22,13 @@ import com.yto.template.fragment.CustomImgDialogFrag;
 import com.yto.template.fragment.OnDiaClickListen;
 import com.yto.template.utils.ToastUtils;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ModalBoxActivity extends BaseActivity implements OnDiaClickListen{
+    @BindView(R.id.title)
+    TextView title;
     private CustomDialogFrag.Builder builder;
     private CustomDialogFrag customDialogFrag;
     private CustomDialogFrag.Builder builder2;
@@ -42,6 +45,7 @@ public class ModalBoxActivity extends BaseActivity implements OnDiaClickListen{
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("模态框");
         builder = new CustomDialogFrag.Builder()
                 .setHasCancle(false)
                 .setSure("主要按钮");

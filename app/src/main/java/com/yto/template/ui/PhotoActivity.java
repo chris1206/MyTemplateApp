@@ -86,6 +86,7 @@ public class PhotoActivity extends BaseActivity{
     }
 
     public void multiCapture(View view){
+        startActivity(new Intent(this, Camera2Activity.class));
 //        Toast.makeText(this, "连拍", Toast.LENGTH_SHORT).show();
     }
 

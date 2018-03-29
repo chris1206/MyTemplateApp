@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg_color_lightgrey">
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="9dp"
+            android:text="组件说明"
+            android:textSize="14sp"
+            android:textColor="@color/btn_normal" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            android:text="横坐标 日期个数随选项可进行调整，最多显示7个，仅第一个日期显示月份；鼠标在图表中滑动时，显示对应的纵坐标的数值"
+            android:textColor="@color/btn_selected" />
+
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:background="@color/transparent"
+            android:layout_height="1dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="9dp"
+            android:textSize="14sp"
+            android:text="走势图"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+        <TextView
+            android:id="@+id/tv_average"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="9dp"
+            android:textSize="12sp"
+            android:text="平均值：9420"
+            android:textColor="@color/btn_selected" />
+    </LinearLayout>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"/>
+
+</LinearLayout>

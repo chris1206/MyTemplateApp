@@ -157,12 +157,12 @@ public class InfoPreviewActivity extends BaseActivity {
                         slip(fl_top, 0, -fl_height);
                         slip(ll_bottom, 0, ll_height);
                         infoShow = false;
-                        System.out.println("向上");
+                        System.out.println("收起");
                     }else{
                         slip(fl_top, -fl_height,0);
-                        slip(ll_bottom, fl_height, 0);
+                        slip(ll_bottom, ll_height, 0);
                         infoShow = true;
-                        System.out.println("向下");
+                        System.out.println("展开");
                     }
                 }
             });

@@ -1,11 +1,14 @@
-package com.yto.template.mytemplateapp;
+package com.yto.template;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,4 +26,15 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.yto.template.mytemplateapp", appContext.getPackageName());
     }
+
+//    @Test
+//    public void javapoet_test(){
+//        MethodSpec main = MethodSpec.methodBuilder("main")
+//                .addCode(""
+//                        + "int total = 0;\n"
+//                        + "for (int i = 0; i < 10; i++) {\n"
+//                        + "  total += i;\n"
+//                        + "}\n")
+//                .build();
+//    }
 }

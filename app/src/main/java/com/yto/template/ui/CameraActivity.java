@@ -85,7 +85,7 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
     private ScreenSwitchUtils mScreenSwitchInstance;
     private boolean isPortrait = true;
     private int orientationState = ScreenSwitchUtils.ORIENTATION_HEAD_IS_UP;
-
+    private int type;
 
     @SuppressLint("HandlerLeak")
     @Override
@@ -93,12 +93,12 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
         super.onCreate(savedInstanceState);
         // Hide the window title.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//强制横屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//【旋转问题】首先强制竖屏，手机横过来时候 控件不变
 
         setContentView(R.layout.activity_camera);
-
+        type = getIntent().getIntExtra("type",0);
         //【重力感应处理】 app内锁定横屏 或用户锁定横屏时候获得方向
         mScreenSwitchInstance = ScreenSwitchUtils.init(getApplicationContext());
         //android M
@@ -160,7 +160,8 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
                     String filePath = msg.obj.toString();
                     Intent intent = new Intent(CameraActivity.this, PreviewActivity.class);
                     intent.putExtra("filePath", filePath);
-                    CameraActivity.this.startActivity(intent);
+//                    CameraActivity.this.startActivity(intent);
+                    CameraActivity.this.startActivityForResult(intent,211);
                 }
             }
         };
@@ -553,6 +554,13 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
             Uri uri = data.getData();
             String imgPath = getUrl(uri);
             Log.d("", "CameraSurfaceView imgPath : " + imgPath);
+        } else if(requestCode == 211 && resultCode == 212) {
+            String filePath = data.getStringExtra("filePath");
+            Intent intent = new Intent();
+            intent.putExtra("filePath", filePath);
+            intent.putExtra("type",type);
+            setResult(202,intent);
+            finish();
         }
     }
 
@@ -741,7 +749,7 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
         if (!file.exists()) {
             file.mkdirs();
         }
-        File f = new File(file, "picture.jpg");
+        File f = new File(file, "picture"+System.currentTimeMillis()+".jpg");
         try {
             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(f));
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, bos);

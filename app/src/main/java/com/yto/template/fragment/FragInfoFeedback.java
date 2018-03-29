@@ -13,6 +13,7 @@ import com.yto.template.ui.ExceptionActivity;
 import com.yto.template.ui.LoadingActivity;
 import com.yto.template.ui.ModalBoxActivity;
 import com.yto.template.ui.NoticeBarActivity;
+import com.yto.template.ui.RefreshActivity;
 import com.yto.template.ui.ResultActivity;
 import com.yto.template.ui.ScanActivity;
 import com.yto.template.ui.SearchViewActivity;
@@ -48,7 +49,7 @@ public class FragInfoFeedback extends BaseV4Fragment {
                 startActivity(new Intent(getActivity(), LoadingActivity.class));
                 break;
             case R.id.rl_to_refresh:
-                startActivity(new Intent(getActivity(), SelectorActivity.class));
+                startActivity(new Intent(getActivity(), RefreshActivity.class));
                 break;
             case R.id.rl_to_toast:
                 startActivity(new Intent(getActivity(), ToastActivity.class));

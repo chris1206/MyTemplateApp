@@ -16,6 +16,7 @@ import com.tangxiaolv.telegramgallery.GalleryActivity;
 import com.tangxiaolv.telegramgallery.GalleryConfig;
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
+import com.yto.template.utils.Content;
 
 import java.util.List;
 
@@ -27,7 +28,9 @@ import cn.bingoogolapple.qrcode.zxing.QRCodeDecoder;
 import cn.bingoogolapple.qrcode.zxing.ZXingView;
 
 public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
-    private static final int REQUEST_CODE_CHOOSE_QRCODE_FROM_GALLERY = 666;
+
+    @BindView(R.id.title)
+    TextView title;
     @BindView(R.id.zxingview)
     ZXingView mQRCodeView;
     @BindView(R.id.checkbox)
@@ -42,6 +45,7 @@ public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("扫描");
         mQRCodeView.setDelegate(this);
         mQRCodeView.startSpot();
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -57,7 +61,7 @@ public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
             }
         });
     }
-    @OnClick(R.id.tv_photo)
+    @OnClick({R.id.back,R.id.tv_photo})
     void onClick(View view){
 //        Intent photoPickerIntent = new BGAPhotoPickerActivity.IntentBuilder(this)
 //                .cameraFileDir(null)
@@ -66,13 +70,20 @@ public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
 //                .pauseOnScroll(false)
 //                .build();
 //        startActivityForResult(photoPickerIntent, REQUEST_CODE_CHOOSE_QRCODE_FROM_GALLERY);
-        GalleryConfig config = new GalleryConfig.Build()
-                .limitPickPhoto(1)
-                .singlePhoto(false)
-                .hintOfPick("this is pick hint")
-                .filterMimeTypes(new String[]{})
-                .build();
-        GalleryActivity.openActivity(ScanActivity.this, REQUEST_CODE_CHOOSE_QRCODE_FROM_GALLERY, config);
+        switch (view.getId()){
+            case R.id.back:
+                onBackPressed();
+                break;
+            case R.id.tv_photo:
+                GalleryConfig config = new GalleryConfig.Build()
+                        .limitPickPhoto(1)
+                        .singlePhoto(false)
+                        .hintOfPick("this is pick hint")
+                        .filterMimeTypes(new String[]{})
+                        .build();
+                GalleryActivity.openActivity(ScanActivity.this, Content.REQUEST_CODE_CHOOSE_QRCODE_FROM_GALLERY, config);
+                break;
+        }
     }
 
     @Override
@@ -92,7 +103,7 @@ public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
 
         mQRCodeView.showScanRect();
 
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_CHOOSE_QRCODE_FROM_GALLERY) {
+        if (resultCode == Activity.RESULT_OK && requestCode == Content.REQUEST_CODE_CHOOSE_QRCODE_FROM_GALLERY) {
             List<String> picturePaths = (List<String>)data.getSerializableExtra(GalleryActivity.PHOTOS);
             String picturePath = picturePaths.get(0);
 

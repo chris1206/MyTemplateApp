@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    >
+    <include layout="@layout/title_bar_black"/>
+    <TextView
+        android:id="@+id/tv_common_notify"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/notic"
+        android:drawableLeft="@mipmap/groupcopy"
+        android:paddingLeft="10dp"
+        android:drawablePadding="5dp"
+        android:text="通知内容"
+        android:gravity="center_vertical"
+        android:textColor="@color/notic_text"
+        android:textSize="16sp"
+        android:layout_below="@+id/title_bar"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:text="标题栏"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/text"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

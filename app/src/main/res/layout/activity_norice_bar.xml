@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.yto.template.ui.NoticeBarActivity">
+    <include layout="@layout/title_bar_black"/>
     <TextView
         android:id="@+id/ddd"
         android:layout_width="match_parent"
@@ -27,19 +28,20 @@
         android:id="@+id/tv_common_notify"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/btn_primary_normal_color"
+
         android:drawableLeft="@mipmap/groupcopy"
         android:paddingLeft="10dp"
         android:drawablePadding="5dp"
         android:text="我是通知内容"
         android:gravity="center_vertical"
-        android:textColor="@color/white"
+        android:background="@color/notic"
+        android:textColor="@color/notic_text"
         android:textSize="16sp"/>
     <LinearLayout
         android:id="@+id/ll_has_cancle_notify"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/btn_primary_normal_color"
+        android:background="@color/notic"
         android:layout_marginTop="15dp"
         android:orientation="horizontal">
         <TextView
@@ -50,14 +52,14 @@
             android:drawablePadding="5dp"
             android:text="我是通知内容"
             android:gravity="center_vertical"
-            android:textColor="@color/white"
+            android:textColor="@color/notic_text"
             android:textSize="16sp"
             android:layout_weight="1"
             />
         <ImageView
             android:id="@+id/iv_cancle"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:src="@mipmap/close"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
@@ -75,7 +77,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/btn_primary_normal_color"
+        android:background="@color/notic"
         android:layout_marginTop="15dp"
         android:orientation="horizontal">
         <TextView
@@ -86,7 +88,7 @@
             android:drawablePadding="5dp"
             android:text="当前未绑定状态"
             android:gravity="center_vertical"
-            android:textColor="@color/white"
+            android:textColor="@color/notic_text"
             android:textSize="16sp"
             android:layout_weight="1"
             />
@@ -98,7 +100,7 @@
             android:drawablePadding="5dp"
             android:text="操作按钮"
             android:gravity="center_vertical"
-            android:textColor="@color/white"
+            android:textColor="@color/notic_text"
             android:textSize="16sp"
             />
     </LinearLayout>
@@ -117,12 +119,12 @@
         android:layout_height="40dp"
         android:drawableLeft="@mipmap/stroke"
         android:drawableRight="@mipmap/close"
-        android:background="@color/btn_primary_normal_color"
+        android:background="@color/notic"
         android:paddingLeft="10dp"
         android:drawablePadding="5dp"
         android:text="有重要消息未查看/未操作"
         android:gravity="center_vertical"
-        android:textColor="@color/white"
+        android:textColor="@color/notic_text"
         android:textSize="16sp"
         android:paddingRight="10dp"
         />
