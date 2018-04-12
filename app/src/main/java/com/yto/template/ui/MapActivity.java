@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,7 @@ import java.util.List;
 
 public class MapActivity extends AppCompatActivity {
     private TextView title;
+    private TextView back;
     private TextView btn_summit;
     MapView mMapView = null;
     BaiduMap mBaiduMap = null;
@@ -57,7 +59,8 @@ public class MapActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_map);
         title = (TextView)findViewById(R.id.title);
-        title.setText("查看地图");
+        back = findViewById(R.id.back);
+        title.setText("地图");
         btn_summit = (TextView)findViewById(R.id.btn_summit);
         //获取地图控件引用
         mMapView = (MapView) findViewById(R.id.bmapView);
@@ -84,12 +87,19 @@ public class MapActivity extends AppCompatActivity {
         option.setScanSpan(1000);
         mLocationClient.setLocOption(option);
         mLocationClient.start();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     //自定义的定位监听
     private class MyLocationListener extends BDAbstractLocationListener {
         @Override
         public void onReceiveLocation(BDLocation location) {
-            ToastUtils.show("Location：" + location);
+//            ToastUtils.show("Location：" + location);
             //将获取的location信息给百度map
             MyLocationData data = new MyLocationData.Builder()
                     .accuracy(location.getRadius())
@@ -106,7 +116,7 @@ public class MapActivity extends AppCompatActivity {
                 //mBaiduMap.setMapStatus(status);//直接到中间
                 mBaiduMap.animateMapStatus(status);//动画的方式到中间
                 isFirstLocation = false;
-                ToastUtils.show("位置：" + location.getAddrStr());
+//                ToastUtils.show("位置：" + location.getAddrStr());
             }
         }
     }

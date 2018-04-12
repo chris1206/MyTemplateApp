@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:text="普通"
+        android:text="默认不设置"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
@@ -35,13 +35,11 @@
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:hint="对应的提示文字"
-        android:inputType="text"
-        android:imeOptions="actionUnspecified"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:text="去往"
+        android:text="前往"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
@@ -103,11 +101,12 @@
         android:hint="对应的提示文字"
         android:inputType="text"
         android:imeOptions="actionSend"
+        android:imeActionLabel="发送"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:text="下一个"
+        android:text="下一项"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
@@ -147,5 +146,6 @@
         android:hint="对应的提示文字"
         android:inputType="text"
         android:imeOptions="actionDone"
+        android:imeActionLabel="完成"
         />
 </LinearLayout>

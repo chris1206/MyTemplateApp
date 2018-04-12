@@ -1,6 +1,7 @@
 package com.yto.template.ui;
 
 import android.content.Intent;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +9,7 @@ import android.widget.TextView;
 
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
-import com.yto.template.customview.ResultFinallyActivity;
+import com.yto.template.ui.ResultFinallyActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,14 +38,17 @@ public class RefreshActivity extends BaseActivity {
                 break;
             case R.id.tv_refresh_all:
                 intent.setClass(this, ResultFinallyActivity.class);
-                intent.putExtra("from","nure");
+                intent.putExtra("from","all_refresh");
                 startActivity(intent);
                 break;
             case R.id.tv_custom_refresh:
+                intent.setClass(this, ResultFinallyActivity.class);
+                intent.putExtra("from","jubu");
+                startActivity(intent);
                 break;
             case R.id.tv_refresh_click:
                 intent.setClass(this, ResultFinallyActivity.class);
-                intent.putExtra("from","net_exc");
+                intent.putExtra("from","click_refresh");
                 startActivity(intent);
                 break;
         }

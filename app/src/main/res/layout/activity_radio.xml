@@ -54,7 +54,7 @@
         android:id="@+id/radio_group_more"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        >
         <RadioButton
             android:id="@+id/radio_first_more"
             android:layout_width="match_parent"
@@ -65,7 +65,9 @@
             android:drawableRight="@drawable/os_selector"
             android:paddingRight="10dp"
             android:background="@color/white"
+            android:layout_marginBottom="1px"
             />
+
         <RadioButton
             android:id="@+id/radio_two_more"
             android:layout_width="match_parent"
@@ -76,6 +78,7 @@
             android:drawableRight="@drawable/os_selector"
             android:paddingRight="10dp"
             android:background="@color/white"
+            android:layout_marginBottom="1px"
             />
         <RadioButton
             android:id="@+id/radio_three_more"
@@ -87,6 +90,7 @@
             android:drawableRight="@drawable/os_selector"
             android:paddingRight="10dp"
             android:background="@color/white"
+            android:layout_marginBottom="1px"
             />
         <RadioButton
             android:id="@+id/radio_four_more"
@@ -98,6 +102,7 @@
             android:drawableRight="@drawable/os_selector"
             android:paddingRight="10dp"
             android:background="@color/white"
+            android:layout_marginBottom="1px"
             />
         <RadioButton
             android:layout_width="match_parent"
@@ -134,7 +139,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="同类使用"
+        android:text="同类单选"
         android:textColor="#333333"
         android:textSize="14sp"
         android:paddingLeft="10dp"

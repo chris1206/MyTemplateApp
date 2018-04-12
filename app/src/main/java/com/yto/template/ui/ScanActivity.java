@@ -37,6 +37,8 @@ public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
     CheckBox checkbox;
     @BindView(R.id.tv_photo)
     TextView tv_photo;
+
+    String from;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_scan;
@@ -45,6 +47,9 @@ public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        if(getIntent()!=null){
+            from = getIntent().getStringExtra("from");
+        }
         title.setText("扫描");
         mQRCodeView.setDelegate(this);
         mQRCodeView.startSpot();
@@ -89,7 +94,16 @@ public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
     @Override
     public void onScanQRCodeSuccess(String result) {
         Toast.makeText(this,result,Toast.LENGTH_LONG).show();
+        if(from.equals("edit")){
+            setResult(232,new Intent().putExtra("result",result));
+
+        }else if(from.equals("search")){
+            setResult(242,new Intent().putExtra("result",result));
+        }else if(from.equals("searchR")){
+            setResult(244,new Intent().putExtra("result",result));
+        }
         mQRCodeView.startSpot();
+        finish();
     }
 
     @Override
@@ -150,6 +164,15 @@ public class ScanActivity extends BaseActivity  implements QRCodeView.Delegate {
                 Toast.makeText(ScanActivity.this, "未发现二维码", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(ScanActivity.this, result, Toast.LENGTH_SHORT).show();
+                if(from.equals("edit")){
+                    setResult(232,new Intent().putExtra("result",result));
+
+                }else if(from.equals("search")){
+                    setResult(242,new Intent().putExtra("result",result));
+                }else if(from.equals("searchR")){
+                    setResult(244,new Intent().putExtra("result",result));
+                }
+                finish();
             }
         }
     }

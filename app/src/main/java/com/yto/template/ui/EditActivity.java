@@ -1,5 +1,6 @@
 package com.yto.template.ui;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
@@ -7,6 +8,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -20,6 +22,7 @@ import com.google.gson.Gson;
 import com.qbnet.viewutils.XEditText;
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
+import com.yto.template.customview.ScrollEditText;
 import com.yto.template.utils.ToastUtils;
 
 import java.io.File;
@@ -56,7 +59,7 @@ public class EditActivity extends BaseActivity {
     @BindView(R.id.xet_scan)
     XEditText xet_scan;
     @BindView(R.id.et_more)
-    EditText et_more;
+    ScrollEditText et_more;
     @BindView(R.id.tv_text_num)
     TextView tv_text_num;
     @BindView(R.id.cb_send)
@@ -158,7 +161,8 @@ public class EditActivity extends BaseActivity {
             @Override
             public void onDrawableRightClick(View view) {
                 if(xet_scan.getText().toString().trim().length()==0){
-                    ToastUtils.show("你要扫描吗？" );
+//                    ToastUtils.show("你要扫描吗？" );
+                    startActivityForResult(new Intent(EditActivity.this,ScanActivity.class).putExtra("from","edit"),231);
                 }else{
                     xet_scan.setText("");
                 }
@@ -170,7 +174,7 @@ public class EditActivity extends BaseActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                tv_text_num.setText(count+"/120");
+                tv_text_num.setText(s.length()+"/120");
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -178,6 +182,15 @@ public class EditActivity extends BaseActivity {
         });
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==231&&resultCode==232){
+            String result = data.getStringExtra("result");
+            xet_scan.setText(TextUtils.isEmpty(result)?"":result);
+        }
+    }
 
     public Drawable getDraw(int res){
         Drawable drawable = getResources().getDrawable(res);

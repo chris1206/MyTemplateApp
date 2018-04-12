@@ -2,6 +2,7 @@ package com.yto.template.customview.flowlayout;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private int type = 0;
     private OnItemClickListen onItemClickListen;
+    boolean isAll;
     public FlowAdapter(Context context,List<String> list) {
         this.list = list;
         this.context = context;
@@ -29,11 +31,17 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.context = context;
         this.type = type;
     }
-
+    public FlowAdapter(Context context,List<String> list,int type,boolean isAll) {
+        this.list = list;
+        this.context = context;
+        this.type = type;
+        this.isAll = isAll;
+    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(type == 1) return new MyHolder(View.inflate(context, R.layout.flow_item, null));
-        else return new MyHolder(View.inflate(context, R.layout.flow_item_one, null));
+
+        if(type == 1) return new MyHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.flow_item,parent,false));
+        else return new MyHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.flow_item_one,parent,false));
     }
 
     @Override
@@ -51,7 +59,8 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return list.size();
+        if(type == 1 && !isAll) return 3;
+        else return list.size();
     }
 
     class MyHolder extends RecyclerView.ViewHolder {

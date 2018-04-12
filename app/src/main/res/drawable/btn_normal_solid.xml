@@ -9,7 +9,7 @@
     <item android:state_window_focused="false">
         <shape android:shape="rectangle">
             <!-- 圆角 -->
-            <corners android:radius="5dp" />
+            <corners android:radius="0dp" />
             <!--填充颜色为白色-->
             <solid android:color="@color/white" />
             <!-- 描边 -->
@@ -20,7 +20,7 @@
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <!--圆角-->
-            <corners android:radius="5dp" />
+            <corners android:radius="0dp" />
             <!--填充颜色为白色-->
             <solid android:drawable="@drawable/ripple_touch_bg"/>
             <!--描边-->

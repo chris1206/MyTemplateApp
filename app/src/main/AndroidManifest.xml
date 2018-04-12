@@ -68,13 +68,15 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.EditActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".ui.SelectorActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.SearchViewActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".ui.ScanActivity"
             android:screenOrientation="portrait" />
@@ -119,7 +121,7 @@
             android:name=".ui.ResultActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".customview.ResultFinallyActivity"
+            android:name=".ui.ResultFinallyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.ExceptionActivity"
@@ -172,9 +174,11 @@
         <activity
             android:name=".ui.UpLoadActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.KeyboardActivity"></activity>
+        <activity android:name=".ui.KeyboardActivity" />
         <activity android:name=".ui.ChartActivity" />
         <activity android:name=".ui.Camera2Activity" />
+        <activity android:name=".ui.ScanEntryActivity" />
+        <activity android:name=".ui.ShowLoadingActivity"></activity>
     </application>
 
 </manifest>

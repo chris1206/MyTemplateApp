@@ -34,6 +34,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class UpLoadActivity extends BaseActivity {
 
@@ -70,6 +71,15 @@ public class UpLoadActivity extends BaseActivity {
         gv_take_photo.setAdapter(photoAdapter);
 
         initProPop();
+    }
+
+    @OnClick(R.id.back)
+    void onClick(View view) {
+        switch (view.getId()){
+            case R.id.back:
+                onBackPressed();
+                break;
+        }
     }
 
     @Override

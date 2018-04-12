@@ -29,6 +29,7 @@ import butterknife.OnClick;
 public class ModalBoxActivity extends BaseActivity implements OnDiaClickListen{
     @BindView(R.id.title)
     TextView title;
+
     private CustomDialogFrag.Builder builder;
     private CustomDialogFrag customDialogFrag;
     private CustomDialogFrag.Builder builder2;
@@ -93,9 +94,12 @@ public class ModalBoxActivity extends BaseActivity implements OnDiaClickListen{
 
 
     }
-    @OnClick({R.id.tv_nomal_dialog,R.id.tv_custom_dialog,R.id.tv_title_dialog,R.id.tv_not_title_dialog})
+    @OnClick({R.id.back,R.id.tv_nomal_dialog,R.id.tv_custom_dialog,R.id.tv_title_dialog,R.id.tv_not_title_dialog})
     void onClick(View view){
         switch (view.getId()) {
+            case R.id.back:
+                onBackPressed();
+                break;
             case R.id.tv_nomal_dialog:
                 customDialogFrag = builder.create();
                 customDialogFrag.setListen(this);

@@ -43,9 +43,12 @@ public class ActionSheetActivity extends BaseActivity {
         initNormalPop();
         initCustomPop();
     }
-    @OnClick({R.id.tv_normal_sheet,R.id.tv_custom_sheet})
+    @OnClick({R.id.back,R.id.tv_normal_sheet,R.id.tv_custom_sheet})
     void onClick(View view){
         switch (view.getId()) {
+            case R.id.back:
+                onBackPressed();
+                break;
             case R.id.tv_normal_sheet:
                 if(normalPop!=null&&!normalPop.isShowing()){
                     normalPop.showAtLocation(view.getRootView(), Gravity.BOTTOM,0,normalPop.getHeight());

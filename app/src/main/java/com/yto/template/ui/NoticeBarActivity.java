@@ -49,9 +49,12 @@ public class NoticeBarActivity extends BaseActivity {
         cancleNotif();
     }
 
-    @OnClick({R.id.iv_cancle,R.id.tv_notice,R.id.tv_other_take})
+    @OnClick({R.id.back,R.id.iv_cancle,R.id.tv_notice,R.id.tv_other_take})
     void onClick(View view){
         switch (view.getId()) {
+            case R.id.back:
+                onBackPressed();
+                break;
             case R.id.iv_cancle:
                 ll_has_cancle_notify.setVisibility(View.INVISIBLE);
                 break;

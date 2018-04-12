@@ -8,6 +8,13 @@
     android:orientation="vertical"
     android:background="@color/background">
     <include layout="@layout/title_bar_black"/>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <TextView
         android:id="@+id/ddd"
         android:layout_width="match_parent"
@@ -170,6 +177,7 @@
             android:layout_marginRight="10dp"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp">
@@ -192,13 +200,13 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_one"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="50dp"
+        >
     </android.support.v7.widget.RecyclerView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="样式一"
+        android:text="样式二"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
@@ -240,13 +248,16 @@
         android:id="@+id/rv_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        >
 
     </android.support.v7.widget.RecyclerView>
     <TextView
+        android:id="@+id/tv_all_history"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@color/white"
         android:text="查看全部记录"
         android:gravity="center"/>
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

@@ -58,7 +58,7 @@
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="9dp"
                 android:textSize="14sp"
-                android:text="常规标签栏"
+                android:text="常规按钮"
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -81,7 +81,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:background="@drawable/ripple_touch_bg"
-                android:text="主要按钮"
+                android:text="默认按钮"
                 android:clickable="true"
                 android:textColor="@color/black"
                 android:gravity="center"/>

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
-import com.yto.template.customview.ResultFinallyActivity;
+import com.yto.template.ui.ResultFinallyActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,10 +28,13 @@ public class ResultActivity extends BaseActivity {
         ButterKnife.bind(this);
         title.setText("结果页");
     }
-    @OnClick({R.id.tv_null_result,R.id.tv_not_result})
+    @OnClick({R.id.back,R.id.tv_null_result,R.id.tv_not_result})
     void onClick(View view){
         Intent intent = new Intent();
         switch (view.getId()){
+            case R.id.back:
+                onBackPressed();
+                break;
             case R.id.tv_null_result:
                 intent.setClass(this, ResultFinallyActivity.class);
                 intent.putExtra("from","nure");

@@ -31,12 +31,14 @@ public class ListActivity extends BaseActivity {
         tv_title.setText("列表");
         mToolBar = findViewById(R.id.toolbar);
         mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
+
         mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+
 
     }
 }

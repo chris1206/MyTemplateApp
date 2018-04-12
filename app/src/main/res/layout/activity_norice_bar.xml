@@ -1,16 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.yto.template.ui.NoticeBarActivity">
+    android:background="@color/background">
     <include layout="@layout/title_bar_black"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="9dp"
+            android:text="组件说明"
+            android:textColor="@color/btn_normal" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/notic_present"
+            android:textColor="@color/text_normal" />
+
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:background="@color/transparent"
+            android:layout_height="1dp" />
+    </LinearLayout>
     <TextView
         android:id="@+id/ddd"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:text="通知栏"
         android:textSize="20sp"
         android:textColor="#333333"
@@ -18,7 +55,7 @@
         android:paddingLeft="10dp"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:text="①常规通知栏"
         android:textSize="14sp"
         android:textColor="#333333"
@@ -58,16 +95,16 @@
             />
         <ImageView
             android:id="@+id/iv_cancle"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
             android:src="@mipmap/close"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="16dp"
             />
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:text="②带操作通知栏"
         android:textSize="14sp"
         android:textColor="#333333"
@@ -96,17 +133,17 @@
             android:id="@+id/tv_other_take"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:paddingLeft="10dp"
             android:drawablePadding="5dp"
             android:text="操作按钮"
             android:gravity="center_vertical"
             android:textColor="@color/notic_text"
             android:textSize="16sp"
+            android:layout_marginRight="16dp"
             />
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:text="②警示通知栏"
         android:textSize="14sp"
         android:textColor="#333333"
@@ -118,7 +155,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:drawableLeft="@mipmap/stroke"
-        android:drawableRight="@mipmap/close"
+        android:drawableRight="@mipmap/orage_arraw"
         android:background="@color/notic"
         android:paddingLeft="10dp"
         android:drawablePadding="5dp"
@@ -126,12 +163,12 @@
         android:gravity="center_vertical"
         android:textColor="@color/notic_text"
         android:textSize="16sp"
-        android:paddingRight="10dp"
+        android:paddingRight="16dp"
         />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:text="网络状态栏"
         android:textSize="20sp"
         android:textColor="#333333"
@@ -163,4 +200,6 @@
         android:paddingRight="10dp"
         android:layout_marginTop="15dp"
         />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -17,6 +17,7 @@ import com.yto.template.fragment.FragComposite;
 import com.yto.template.fragment.FragInfoFeedback;
 import com.yto.template.fragment.FragInfoInput;
 import com.yto.template.fragment.FragInfoOutput;
+import com.yto.template.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,35 +74,35 @@ public class MainActivity extends BaseActivity {
         mTabSegment.setDefaultIndicatorColor(getResources().getColor(R.color.indicator_color));
 
         QMUITabSegment.Tab tab1 = new QMUITabSegment.Tab(
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav1_unfocus),
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav1_focus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav1_unfocus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav1_focus),
                 "常用组件", false
         );
-        tab1.setTextSize(24);
+        tab1.setTextSize(Utils.dip2px(MainActivity.this, 12));
         QMUITabSegment.Tab tab2 = new QMUITabSegment.Tab(
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav2_unfocus),
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav2_focus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav2_unfocus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav2_focus),
                 "信息输入", false
         );
-        tab2.setTextSize(24);
+        tab2.setTextSize(Utils.dip2px(MainActivity.this, 12));
         QMUITabSegment.Tab tab3 = new QMUITabSegment.Tab(
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav3_unfocus),
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav3_focus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav3_unfocus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav3_focus),
                 "信息输出", false
         );
-        tab3.setTextSize(24);
+        tab3.setTextSize(Utils.dip2px(MainActivity.this, 12));
         QMUITabSegment.Tab tab4 = new QMUITabSegment.Tab(
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav4_unfocus),
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav4_focus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav4_unfocus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav4_focus),
                 "信息反馈", false
         );
-        tab4.setTextSize(24);
+        tab4.setTextSize(Utils.dip2px(MainActivity.this, 12));
         QMUITabSegment.Tab tab5 = new QMUITabSegment.Tab(
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav5_unfocus),
-                ContextCompat.getDrawable(getApplicationContext(), R.drawable.icon_nav5_focus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav5_unfocus),
+                ContextCompat.getDrawable(getApplicationContext(), R.mipmap.icon_nav5_focus),
                 "综合系列", false
         );
-        tab5.setTextSize(24);
+        tab5.setTextSize(Utils.dip2px(MainActivity.this, 12));
         mTabSegment.setDefaultTabIconPosition(QMUITabSegment.ICON_POSITION_TOP);
         mTabSegment.addTab(tab1).addTab(tab2).addTab(tab3).addTab(tab4).addTab(tab5);
         mTabSegment.setupWithViewPager(mContentViewPager, false);

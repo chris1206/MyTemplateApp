@@ -40,7 +40,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="6dp"
                     android:textSize="12sp"
-                    android:text="仅列举了常用图标，可根据有需求自行添加小红点：\n用于未读消息提示或内容更新提示"
+                    android:text="仅列举了常用图标，可根据有需求自行添加\n小红点：用于未读消息提示或内容更新提示"
                     android:textColor="@color/btn_selected" />
 
                 <View
@@ -189,6 +189,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="14dp"
                     android:src="@drawable/icon_scan"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:src="@drawable/icon_send"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:src="@drawable/icon_write"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -514,7 +524,7 @@
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:layout_marginLeft="24dp"
-                        android:text="..."
+                        android:text="···"
                         android:textSize="10sp"
                         android:gravity="center"
                         android:textColor="@color/white"

@@ -11,7 +11,8 @@
         android:text="常用组件/Basic"
         android:layout_gravity="center"
         android:gravity="center"
-        android:theme="@style/tv_top_title"/>
+        android:textSize="20sp"
+        android:textColor="#333333"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/id_recyclerview"

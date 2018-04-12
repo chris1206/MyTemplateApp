@@ -12,6 +12,7 @@ import com.yto.template.ui.KeyboardActivity;
 import com.yto.template.ui.PhotoActivity;
 import com.yto.template.ui.RadioActivity;
 import com.yto.template.ui.ScanActivity;
+import com.yto.template.ui.ScanEntryActivity;
 import com.yto.template.ui.SearchViewActivity;
 import com.yto.template.ui.SelectorActivity;
 import com.yto.template.ui.UpLoadActivity;
@@ -53,7 +54,7 @@ public class FragInfoInput extends BaseV4Fragment {
                 startActivity(new Intent(getActivity(), SearchViewActivity.class));
                 break;
             case R.id.rl_to_scan:
-                startActivity(new Intent(getActivity(), ScanActivity.class));
+                startActivity(new Intent(getActivity(), ScanEntryActivity.class));
                 break;
             case R.id.rl_to_photo:
                 startActivity(new Intent(getActivity(), PhotoActivity.class));

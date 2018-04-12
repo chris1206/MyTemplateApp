@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Point;
@@ -54,12 +53,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
 import com.yto.template.customview.AutoFitTextureView;
-import com.yto.template.utils.Utils;
 
 import java.io.File;
 import java.io.FileOutputStream;

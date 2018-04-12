@@ -1,12 +1,21 @@
 package com.yto.template.ui;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.qbnet.viewutils.XEditText;
@@ -27,6 +36,11 @@ import butterknife.OnClick;
 public class SearchViewActivity extends BaseActivity {
     @BindView(R.id.title)
     TextView title;
+    @BindView(R.id.xet_search_scan)
+    XEditText xet_search_scan;
+    @BindView(R.id.xet_scan)
+    XEditText xet_scan;
+
     @BindView(R.id.rv_one)
     RecyclerView rv_one;
     @BindView(R.id.xet_histroy_one)
@@ -34,16 +48,22 @@ public class SearchViewActivity extends BaseActivity {
     @BindView(R.id.delete)
     ImageView delete;
 
+
     @BindView(R.id.rv_two)
     RecyclerView rv_two;
     @BindView(R.id.xet_histroy_two)
     XEditText xet_histroy_two;
+    @BindView(R.id.tv_all_history)
+    TextView tv_all_history;
 
     private List<String> list = new ArrayList<>();
     private FlowAdapter flowAdapter;
 
     private List<String> tlist = new ArrayList<>();
     private FlowAdapter tflowAdapter;
+    private boolean hasChecked = false;
+    private PopupWindow historyPop;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_search_view;
@@ -61,19 +81,25 @@ public class SearchViewActivity extends BaseActivity {
         rv_one.addItemDecoration(new SpaceItemDecoration(dp2px(10)));
         rv_one.setLayoutManager(flowLayoutManager);
         rv_one.setAdapter(flowAdapter);
+        rv_one.setNestedScrollingEnabled(false);
         tlist.add("A20170102fff");
         tlist.add("A201701");
         tlist.add("A201701");
-        tflowAdapter = new FlowAdapter(this,tlist,1);
+        tlist.add("A201701555");
+        tlist.add("A201701666");
+        tlist.add("A201701777");
+        tflowAdapter = new FlowAdapter(this,tlist,1,hasChecked);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rv_two.addItemDecoration(new MyItemDecoration(1));
         rv_two.setLayoutManager(linearLayoutManager);
         rv_two.setAdapter(tflowAdapter);
 
+        rv_two.setNestedScrollingEnabled(false);
         flowAdapter.setItemClickListen(new FlowAdapter.OnItemClickListen() {
             @Override
             public void onItemClick(View view, int position) {
                 xet_histroy_one.setText(list.get(position));
+                xet_histroy_one.setSelection(xet_histroy_one.length());
             }
         });
 
@@ -81,12 +107,31 @@ public class SearchViewActivity extends BaseActivity {
             @Override
             public void onItemClick(View view, int position) {
                 xet_histroy_two.setText(tlist.get(position));
+                xet_histroy_two.setSelection(xet_histroy_two.length());
+            }
+        });
+        xet_scan.setDrawableRightListener(new XEditText.DrawableRightListener() {
+            @Override
+            public void onDrawableRightClick(View view) {
+                startActivityForResult(new Intent(SearchViewActivity.this,ScanActivity.class).putExtra("from","searchR"),243);
             }
         });
 
+        xet_histroy_one.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                switch (keyCode) {
+                    case KeyEvent.KEYCODE_SEARCH:
+                        list.add(0,xet_histroy_one.getText().toString());
+                        flowAdapter.notifyDataSetChanged();
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
-    @OnClick({R.id.back,R.id.tv_one_cancle,R.id.delete,R.id.tv_two_cancle})
+    @OnClick({R.id.back,R.id.tv_one_cancle,R.id.delete,R.id.tv_two_cancle,R.id.iv_scan,R.id.tv_all_history})
     void onClick(View view){
         switch (view.getId()) {
             case R.id.back:
@@ -102,10 +147,68 @@ public class SearchViewActivity extends BaseActivity {
             case R.id.tv_two_cancle:
                 xet_histroy_two.setText("");
                 break;
+            case R.id.iv_scan:
+                startActivityForResult(new Intent(SearchViewActivity.this,ScanActivity.class).putExtra("from","search"),241);
+                break;
+            case R.id.tv_all_history:
+                if(!hasChecked){
+                    hasChecked = true;
+                    tflowAdapter = new FlowAdapter(this,tlist,1,hasChecked);
+                    rv_two.setAdapter(tflowAdapter);
+                    tv_all_history.setText("收起");
+                }else{
+                    hasChecked = false;
+                    tflowAdapter = new FlowAdapter(this,tlist,1,hasChecked);
+                    rv_two.setAdapter(tflowAdapter);
+                    tv_all_history.setText("查看全部记录");
+                }
+                tflowAdapter.setItemClickListen(new FlowAdapter.OnItemClickListen() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        xet_histroy_two.setText(tlist.get(position));
+                        xet_histroy_two.setSelection(xet_histroy_two.length());
+                    }
+                });
+                break;
         }
     }
 
     private int dp2px(float value) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics());
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==241&&resultCode==242){
+            String result = data.getStringExtra("result");
+            xet_search_scan.setText(TextUtils.isEmpty(result)?"":result);
+        }else if(requestCode==243&&resultCode==244){
+            String result = data.getStringExtra("result");
+            xet_scan.setText(TextUtils.isEmpty(result)?"":result);
+        }
+    }
+
+    public void initHistoryOnePop(){
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentview = inflater.inflate(R.layout.pop_search_history, null);
+        historyPop = new PopupWindow(contentview, ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        historyPop.setFocusable(true);
+        historyPop.setOutsideTouchable(true);
+
+        ImageView delete = contentview.findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                historyPop.dismiss();
+                list.clear();
+                flowAdapter.notifyDataSetChanged();
+            }
+        });
+
+        historyPop.setAnimationStyle(R.style.MyPopupWindow_anim_style);
+    }
+
+
 }

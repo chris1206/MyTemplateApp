@@ -3,6 +3,7 @@ package com.yto.template.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
 import com.yto.template.R;
 import com.yto.template.base.BaseV4Fragment;
@@ -25,7 +26,6 @@ public class FragComposite extends BaseV4Fragment {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-
     }
 
     @OnClick({R.id.rl_frame,R.id.rl_map})

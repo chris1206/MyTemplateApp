@@ -62,6 +62,8 @@ public class SelectorActivity extends BaseActivity {
     TextView tv_selector_time_day;
     @BindView(R.id.tv_selector_provincial)
     TextView tv_selector_provincial;
+    @BindView(R.id.tv_selector_provincial_two)
+    TextView tv_selector_provincial_two;
 
 
     private ArrayList<String> sItem = new ArrayList<>();
@@ -75,11 +77,17 @@ public class SelectorActivity extends BaseActivity {
     PopupWindow pop;
     PopupWindow provincial_pop;
     private String[] items = {
-            "京", "沪", "浙", "苏", "粤", "鲁", "晋", "冀", "豫",
-            "川", "渝", "辽", "吉", "黑", "皖", "鄂", "湘", "赣",
-            "闽", "陕", "甘", "宁", "蒙", "津",  "贵", "云","桂",
-            "琼", "青", "新", "藏",
+            "川", "鄂", "甘", "赣", "桂", "贵", "黑", "沪", "吉", "冀", "津", "晋",
+            "京", "辽", "鲁", "蒙", "闽", "宁", "青", "琼", "陕", "苏", "皖", "湘",
+            "新", "渝", "豫", "粤", "云", "藏", "浙"
     };
+    private String[] jItems = {
+            "C",  "E",  "G",  "G",  "G",  "G",  "H",  "H",  "J",  "J",  "J",  "J",
+            "J",  "L",  "L",  "M",  "M",  "N",  "Q",  "Q",  "S",  "S",  "W",  "X",
+            "X",  "Y",  "Y",  "Y",  "Y",  "Z",  "Z"
+    };
+    private OptionsPickerView pvOptions;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_selector;
@@ -116,6 +124,7 @@ public class SelectorActivity extends BaseActivity {
         initTimeDayPicker();
 
         initProPop();
+        initProTwoPop();
     }
     String w ;
     String t;
@@ -124,7 +133,7 @@ public class SelectorActivity extends BaseActivity {
 
 
 
-    @OnClick({R.id.back,R.id.tv_selector_common,R.id.tv_selector_time,R.id.tv_selector_day,R.id.tv_selector_time_day,R.id.tv_selector_provincial})
+    @OnClick({R.id.back,R.id.tv_selector_common,R.id.tv_selector_time,R.id.tv_selector_day,R.id.tv_selector_time_day,R.id.tv_selector_provincial,R.id.tv_selector_provincial_two})
     void onClick(View view){
         switch (view.getId()){
             case R.id.back:
@@ -155,6 +164,11 @@ public class SelectorActivity extends BaseActivity {
                 if(provincial_pop!=null&&!provincial_pop.isShowing()){
                     provincial_pop.showAtLocation(tv_selector_provincial.getRootView(),Gravity.BOTTOM,0,provincial_pop.getHeight());
                     darkenBackground(0.6f);
+                }
+                break;
+            case R.id.tv_selector_provincial_two:
+                if(pvOptions!=null){
+                    pvOptions.show();
                 }
                 break;
         }
@@ -191,7 +205,9 @@ public class SelectorActivity extends BaseActivity {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
-                tv_selector_time.setText(tList.get(options1)+""+hList.get(option2)+":"+mList.get(options3));
+                String hStr = String.format("%02d",hList.get(option2));
+                String mStr = String.format("%02d",mList.get(options3));
+                tv_selector_time.setText(tList.get(options1)+""+hStr+":"+mStr);
             }
         })
                 .setCancelColor(Color.parseColor("#333333"))
@@ -278,7 +294,9 @@ public class SelectorActivity extends BaseActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_selector_time_day.setText(wList.get(options1.getCurrentItem())+" "+tList.get(options2.getCurrentItem())+" "+hList.get(options3.getCurrentItem())+":"+mList.get(options4.getCurrentItem()));
+                String hStr = String.format("%02d",hList.get(options3.getCurrentItem()));
+                String mStr = String.format("%02d",mList.get(options4.getCurrentItem()));
+                tv_selector_time_day.setText(wList.get(options1.getCurrentItem())+" "+tList.get(options2.getCurrentItem())+" "+hStr+":"+mStr);
                 if(pop!=null&&pop.isShowing()){
                     pop.dismiss();
                     darkenBackground(1f);
@@ -355,8 +373,30 @@ public class SelectorActivity extends BaseActivity {
         provincial_pop.setAnimationStyle(R.style.MyPopupWindow_anim_style);
     }
 
+    public void initProTwoPop(){
+        List<String> jList = new ArrayList<>(Arrays.asList(jItems));
+        List<String> pList = new ArrayList<>(Arrays.asList(items));
+
+        List<String> list = new ArrayList<>();
+        if(jList.size()==pList.size()){
+            int size = jList.size();
+            for (int i=0;i<size;i++){
+                list.add(jList.get(i)+"    "+pList.get(i));
+            }
+            pvOptions = new OptionsPickerView.Builder(SelectorActivity.this, new OptionsPickerView.OnOptionsSelectListener() {
+                @Override
+                public void onOptionsSelect(int i, int i1, int i2, View view) {
+                    tv_selector_provincial_two.setText(items[i]);
+                }
+            }).build();
+            pvOptions.setPicker(list);
+        }
+        jList.clear();
+        pList.clear();
+    }
+
     private String getTime(Date date) {//可根据需要自行截取数据显示
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         return format.format(date);
     }
 

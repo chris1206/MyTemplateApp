@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="@drawable/rec_white_co_shape"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/ll_loading">
+    <com.yto.template.customview.CircleProgressView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_loading_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/text"
+        android:text="拼命加载中"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="50dp"/>
+    <ImageView
+        android:id="@+id/iv_pro_cancle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/close"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="24dp"
+        android:visibility="gone"/>
+</LinearLayout>
+

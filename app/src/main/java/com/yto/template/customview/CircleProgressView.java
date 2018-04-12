@@ -130,7 +130,7 @@ public class CircleProgressView extends View {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (degreeAnimation.isRunning()) {
+        if (degreeAnimation!=null&&degreeAnimation.isRunning()) {
             endAnimation();
         }
     }

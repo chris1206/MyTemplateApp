@@ -33,6 +33,8 @@ public class CustomDialogFrag extends DialogFragment{
     TextView tv_dialog_cancle;
     @BindView(R.id.tv_dialog_ok)
     TextView tv_dialog_ok;
+    @BindView(R.id.tv_line)
+    TextView tv_line;
     private CharSequence title;
     private String titleColor;
     private boolean hasTitle;
@@ -85,9 +87,11 @@ public class CustomDialogFrag extends DialogFragment{
         }
         if(!hasCancle){
             tv_dialog_cancle.setVisibility(View.GONE);
+            tv_line.setVisibility(View.GONE);
         }else{
             tv_dialog_cancle.setVisibility(View.VISIBLE);
             tv_dialog_cancle.setText(TextUtils.isEmpty(cancle)?"按钮1":cancle);
+            tv_line.setVisibility(View.VISIBLE);
         }
         tv_dialog_msg.setText(TextUtils.isEmpty(msg)?"内容描述，描述内容可以根据需要自定义或删除":msg);
         tv_dialog_ok.setText(TextUtils.isEmpty(sure)?"按钮2":sure);

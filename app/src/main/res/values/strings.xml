@@ -31,4 +31,54 @@
 
     <string name="request_permission">This sample needs camera permission.</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
+    <string name="edit_present">
+        单行输入框：点击输入框进入编辑状态/n
+带清除输入框：输入框不为空时，右侧出现清空“x”；字数超过可显示长度，以“...”结束，右侧出现清空“x”\n
+带扫描输入框：1+n次扫描时，覆盖原先结果\n
+ 必要时输入内容做格式字数限制\n\n多行输入框：默认显示提示文字，点击输入框进入编辑状态\n
+        文字超过可视区域时，右侧出现拖动条，上下滑动可查看\n
+        默认限定字120字，右下角字数倒数。
+    </string>
+    <string name="selector_present">
+        常规选择器：最多不超过三列；上下滑动＆点击可切换；
+        点击除选择器外其他区域也可收起；
+        再次进入拨盘选择时，停留在上一次选择内容；\n\n日期选择器：部分月份无30日、31日，根据所选的月份显示
+    </string>
+    <string name="upload_present">
+        上传途径：若需多张图片，则上传一张，显示一格上传\n
+        “X”显示与图片最上层\n
+        目前上传动作位于后台进行，前台仅显示缩略图
+    </string>
+    <string name="notic_present">
+        常规通告栏：-5秒后消失或不消失添加关闭按钮
+        警示通告栏：通常带跳转，点击可查看详情或进行其他操作，用于重要内容提示
+        固定在顶部导航栏下方\n\n网络状态栏：固定在顶部导航栏下方
+    </string>
+    <string name="sheet_present">
+        常规面板：点击除面板外的其他区域可收起\n\n自定义面板：自定义，可以显示一行提示文案
+    </string>
+    <string name="load_present">
+        常规加载：出现在屏幕中间
+        带结束加载：点击“x”关闭加载\n\n局部加载：不影响当前信息查看及翻阅
+    </string>
+    <string name="toast_present">
+        常规吐司：2秒后逐渐隐去；
+        提示内容较为精简；
+        常规情况不能对toast进行交互；
+        不能同时出现两个及以上；
+        悬浮在当前页面上层，不影响当前页面操作\n\n自定义吐司：通常和icon配合使用，用于操作反馈；2秒后逐渐隐去；
+        提示内容较为精简；
+        常规情况不能对toast进行交互
+        不能同时出现两个及以上
+        悬浮在当前页面上层，不影响当前页面操作
+    </string>
+    <string name="modul_present">
+        单项模态框：重要信息提示或确认
+        自定义模态框：若为重要引导操作或通知，则可将右上角关闭入口隐藏\n\n双项模态框：双向操作：重要信息操作，且为不可逆操作，例如：删除；提供两个按钮，可以有倾向性
+    </string>
+    <string name="refresh_present">
+        下拉刷新局部：位于刷新区域的顶部。\n\n点击刷新：进入该页面时无网络，无默认加载内容页面
+        点击屏幕进行刷新
+    </string>
 </resources>

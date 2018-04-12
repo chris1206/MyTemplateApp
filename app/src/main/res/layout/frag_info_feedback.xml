@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     >
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
+        android:background="@color/common_bg_color_lightgrey"
         android:text="信息反馈/Feedback"
         android:textColor="#333333"
         android:textSize="20sp"
         android:gravity="center"
-        android:background="#cccccc"
         />
     <RelativeLayout
         android:id="@+id/rl_notic_back_bar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -33,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#999999"
+                android:textColor="#aaa"
                 android:text="Notice Bar"/>
         </LinearLayout>
         <ImageView
@@ -45,13 +50,13 @@
             android:layout_marginRight="10dp"/>
         <TextView android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#999999"
+            android:background="@color/line_grey"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_action_sheet"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -67,7 +72,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#999999"
+                android:textColor="#aaa"
                 android:text="Actionsheet"/>
         </LinearLayout>
         <ImageView
@@ -79,13 +84,13 @@
             android:layout_marginRight="10dp"/>
         <TextView android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#999999"
+            android:background="@color/line_grey"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_to_loading"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -101,7 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#999999"
+                android:textColor="#aaa"
                 android:text="Loading"/>
         </LinearLayout>
         <ImageView
@@ -113,13 +118,13 @@
             android:layout_marginRight="10dp"/>
         <TextView android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#999999"
+            android:background="@color/line_grey"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_to_refresh"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -135,7 +140,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#999999"
+                android:textColor="#aaa"
                 android:text="Refresh"/>
         </LinearLayout>
         <ImageView
@@ -147,13 +152,13 @@
             android:layout_marginRight="10dp"/>
         <TextView android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#999999"
+            android:background="@color/line_grey"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_to_toast"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -169,7 +174,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#999999"
+                android:textColor="#aaa"
                 android:text="Toast"/>
         </LinearLayout>
         <ImageView
@@ -181,13 +186,13 @@
             android:layout_marginRight="10dp"/>
         <TextView android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#999999"
+            android:background="@color/line_grey"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_modal_box"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -203,7 +208,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#999999"
+                android:textColor="#aaa"
                 android:text="Modal Box"/>
         </LinearLayout>
         <ImageView
@@ -215,13 +220,13 @@
             android:layout_marginRight="10dp"/>
         <TextView android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#999999"
+            android:background="@color/line_grey"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_result_page"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -238,7 +243,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#999999"
+                android:textColor="#aaa"
                 android:text="Result Page"/>
         </LinearLayout>
         <ImageView
@@ -250,13 +255,14 @@
             android:layout_marginRight="10dp"/>
         <TextView android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#999999"
+            android:background="@color/line_grey"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/rl_to_exception"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -272,7 +278,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#999999"
+                android:textColor="#aaa"
                 android:text="Abnormal Page"/>
         </LinearLayout>
         <ImageView
@@ -282,10 +288,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"/>
-        <TextView android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#999999"
-            android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 
 </LinearLayout>
+</ScrollView>

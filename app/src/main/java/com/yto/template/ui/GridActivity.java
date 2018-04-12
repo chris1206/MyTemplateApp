@@ -66,17 +66,17 @@ public class GridActivity extends BaseActivity {
         tv_title = findViewById(R.id.tv_title);
         tv_title.setText("九宫格");
         mToolBar = findViewById(R.id.toolbar);
+//        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
+//        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
         view_container = findViewById(R.id.frag_grid_container);
-        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
-        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
         mRecyclerVIew = findViewById(R.id.id_recyclerview);
         mRecyclerVIew.setLayoutManager(new GridLayoutManager(this,2));
-        mRecyclerVIew.addItemDecoration(new DividerGridItemDecoration(this));
+//        mRecyclerVIew.addItemDecoration(new DividerGridItemDecoration(this));
         mRecyclerVIew.setAdapter(myAdapter);
 
     }

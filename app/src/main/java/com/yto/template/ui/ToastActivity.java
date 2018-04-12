@@ -29,9 +29,12 @@ public class ToastActivity extends BaseActivity {
         title.setText("吐司提示");
     }
 
-    @OnClick({R.id.tv_normal_toast,R.id.tv_custom_toast})
+    @OnClick({R.id.back,R.id.tv_normal_toast,R.id.tv_custom_toast})
     void onClick(View view){
         switch (view.getId()) {
+            case R.id.back:
+                onBackPressed();
+                break;
             case R.id.tv_normal_toast:
                 ToastUtils.show("提示内容最多15个字，不能再多了");
                 break;

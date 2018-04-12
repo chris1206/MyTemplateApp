@@ -132,7 +132,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="14dp"
                     android:visibility="visible"/>
             </RelativeLayout>
 
@@ -196,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:src="@mipmap/more"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="14dp"
                     android:layout_centerVertical="true"
                     android:visibility="visible"/>
             </RelativeLayout>
@@ -356,13 +356,24 @@
                     android:layout_marginRight="14dp"
                     android:visibility="gone"/>
 
+                <ImageView
+                    android:id="@+id/iv_qrcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="14dp"
+                    android:src="@mipmap/scan3"
+                    android:visibility="visible"/>
+
                 <com.yto.template.customview.IconCenterEditText
                     android:id="@+id/et_search"
                     android:layout_width="match_parent"
                     android:layout_height="36dp"
-                    android:layout_toLeftOf="@id/tv_cancel"
-                    android:layout_toStartOf="@id/tv_cancel"
                     android:layout_toRightOf="@id/arrow"
+                    android:layout_toEndOf="@id/arrow"
+                    android:layout_toLeftOf="@id/iv_qrcode"
+                    android:layout_toStartOf="@id/iv_qrcode"
                     android:drawableLeft="@mipmap/search"
                     android:drawableStart="@mipmap/search"
                     android:drawableRight="@mipmap/scan"
@@ -383,17 +394,8 @@
                     android:imeOptions="actionSearch"
                     android:background="@drawable/bg_grey_reg"
                     android:maxLines="1"
-                    android:layout_toEndOf="@id/arrow" />
+                     />
 
-                <ImageView
-                    android:id="@+id/iv_qrcode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_alignRight="@id/et_search"
-                    android:layout_marginRight="10dp"
-                    android:src="@mipmap/scan"
-                    android:visibility="gone"/>
             </RelativeLayout>
 
             <TextView
@@ -450,7 +452,8 @@
                 android:layout_marginLeft="14dp"
                 android:layout_marginTop="44dp"
                 android:text="自定义导航栏"
-                android:textColor="@color/btn_normal" />
+                android:textColor="@color/btn_normal"
+                android:visibility="gone"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar_custom"
@@ -463,7 +466,15 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:title="导航栏ToolBar"
                 app:titleTextAppearance="@style/Toolbar.TitleText"
-                app:titleTextColor="@color/btn_normal"/>
+                app:titleTextColor="@color/btn_normal"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/transparent"
+                android:visibility="invisible"/>
 
         </LinearLayout>
     </ScrollView>

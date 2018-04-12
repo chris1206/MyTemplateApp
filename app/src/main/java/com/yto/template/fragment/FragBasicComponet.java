@@ -48,6 +48,7 @@ public class FragBasicComponet extends BaseV4Fragment {
 
         mRecyclerVIew =  rootView.findViewById(R.id.id_recyclerview);
         mRecyclerVIew.setLayoutManager(new LinearLayoutManager(getContext()));
+        //注意属性修改在styles.xml AppTheme中定义,不设置，就是默认样式
         mRecyclerVIew.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         mRecyclerVIew.setAdapter(myAdapter);
 

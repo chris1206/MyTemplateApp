@@ -12,7 +12,7 @@
         android:background="@color/colorPrimaryDark"
         android:theme="@style/ToolbarTheme">
         <!--设置返回图标-->
-        <!--app:navigationIcon="@drawable/arrow_white"-->
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
@@ -23,5 +23,11 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="-10dp"
+            android:src="@mipmap/arrow_white"/>
     </android.support.v7.widget.Toolbar>
 </merge>
