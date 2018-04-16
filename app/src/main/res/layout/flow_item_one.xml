@@ -8,7 +8,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="5dp"
-    android:textColor="@android:color/white"
+    android:textColor="@color/text"
     android:textSize="15sp"
-    android:background="@drawable/rec_grayccc_shape"
+    android:background="@color/rv_item"
     />

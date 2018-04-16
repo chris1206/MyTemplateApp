@@ -3,8 +3,10 @@ package com.yto.template.customview;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -21,13 +23,15 @@ import android.widget.FrameLayout;
 import android.widget.TabWidget;
 import android.widget.TextView;
 
+import com.yto.template.utils.Utils;
+
 /**
  * A simple text label view that can be applied as a "badge" to any given {@link View}.
  * This class is intended to be instantiated at runtime rather than included in XML layouts.
  *
  * @author Jeff Gilfelt
  */
-public class BadgeView extends TextView {
+public class BadgeView extends android.support.v7.widget.AppCompatTextView {
 
 	public static final int POSITION_TOP_LEFT = 1;
 	public static final int POSITION_TOP_RIGHT = 2;
@@ -35,7 +39,7 @@ public class BadgeView extends TextView {
 	public static final int POSITION_BOTTOM_RIGHT = 4;
 
 	private static final int DEFAULT_MARGIN_DIP = 5;
-	private static final int DEFAULT_LR_PADDING_DIP = 5;
+	private static final int DEFAULT_LR_PADDING_DIP = 5;//字体距离边框的padding值
 	private static final int DEFAULT_CORNER_RADIUS_DIP = 8;
 	private static final int DEFAULT_POSITION = POSITION_TOP_RIGHT;
 	private static final int DEFAULT_BADGE_COLOR = Color.RED;
@@ -114,7 +118,9 @@ public class BadgeView extends TextView {
 		setTypeface(Typeface.DEFAULT_BOLD);
 		int paddingPixels = dipToPixels(DEFAULT_LR_PADDING_DIP);
 		setPadding(paddingPixels, 0, paddingPixels, 0);
+//        setPadding(paddingPixels, paddingPixels, paddingPixels, paddingPixels);
 		setTextColor(DEFAULT_TEXT_COLOR);
+		setTextSize(12);
 		
 		fadeIn = new AlphaAnimation(0, 1);
 		fadeIn.setInterpolator(new DecelerateInterpolator());
@@ -319,7 +325,14 @@ public class BadgeView extends TextView {
 		
 		int r = dipToPixels(DEFAULT_CORNER_RADIUS_DIP);
 		float[] outerR = new float[] {r, r, r, r, r, r, r, r};
-        
+
+//        OvalShape ovalShape = new OvalShape();
+//        ShapeDrawable drawable1 = new ShapeDrawable(ovalShape);
+//        drawable1.getPaint().setColor(Color.RED);
+//        drawable1.getPaint().setStyle(Paint.Style.FILL);
+//        drawable1.setIntrinsicWidth(Utils.dip2px(context,18));
+//        drawable1.setIntrinsicHeight(Utils.dip2px(context,18));
+
 		RoundRectShape rr = new RoundRectShape(outerR, null, null);
 		ShapeDrawable drawable = new ShapeDrawable(rr);
 		drawable.getPaint().setColor(badgeColor);

@@ -51,7 +51,7 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, list.get(position), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, list.get(position), Toast.LENGTH_SHORT).show();
                 onItemClickListen.onItemClick(v,position);
             }
         });

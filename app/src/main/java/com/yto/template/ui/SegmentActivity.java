@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,8 +23,9 @@ import java.lang.reflect.Field;
  */
 
 public class SegmentActivity extends BaseActivity{
-    private Toolbar mToolBar;
-    private TextView tv_title;
+//    private Toolbar mToolBar;
+    private TextView title;
+    private ImageView back;
     private TabLayout mTabLayout1;
     private TabLayout mTabLayout2;
 
@@ -49,20 +51,32 @@ public class SegmentActivity extends BaseActivity{
         mTabLayout4 = findViewById(R.id.tabLayout4);
         mTabLayout5 = findViewById(R.id.tabLayout5);
         mTabLayout6 = findViewById(R.id.tabLayout6);
-        tv_title = findViewById(R.id.tv_title);
-        mTabLayout3 = findViewById(R.id.tabLayout3);
-        tv_title.setText("分段控件");
-        mToolBar = findViewById(R.id.toolbar);
-        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
-        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+        back = findViewById(R.id.back);
+        title = findViewById(R.id.title);
+        title.setText("分段控件");
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+        mTabLayout3 = findViewById(R.id.tabLayout3);
+//        tv_title = findViewById(R.id.tv_title);
+//        tv_title.setText("分段控件");
+//        mToolBar = findViewById(R.id.toolbar);
+//        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
+//        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
     }
 
     private void initTabs() {
+//        TabLayout.Tab tab1 = mTabLayout1.newTab();
+//        tab1.setText("选项一");
+//        tab1.setCustomView(R.layout.qmui_empty_view);
         mTabLayout1.addTab(mTabLayout1.newTab().setText("选项一"));
         mTabLayout1.addTab(mTabLayout1.newTab().setText("选项二"));
 

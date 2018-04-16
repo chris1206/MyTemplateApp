@@ -5,29 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background"
-    tools:context="com.yto.template.ui.KeyboardActivity">
+    android:background="@color/white"
+    >
     <include layout="@layout/title_bar_black" ></include>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="9dp"
+                android:text="组件说明"
+                android:textColor="@color/btn_normal" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="13dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="6dp"
+                android:text="由于Android手机产商不同，回车键在不同手机上效果不同"
+                android:textColor="@color/text_normal" />
+
+            <View
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:background="@color/line"
+                android:layout_height="1dp" />
+        </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="由于Android手机产商不同，回车键在不同手机上效果不同"
-        android:textSize="18sp"
-        android:textColor="#333333"
-        android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
         android:text="默认不设置"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="20dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="@drawable/edit_bg_selector"
+        android:background="@color/background"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -35,19 +60,22 @@
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:hint="对应的提示文字"
+        android:layout_marginBottom="10dp"
+        android:textColorHint="@color/text_hint"
         />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:text="前往"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="5dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="@drawable/edit_bg_selector"
+        android:background="@color/background"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -57,19 +85,22 @@
         android:hint="对应的提示文字"
         android:inputType="text"
         android:imeOptions="actionGo"
+        android:layout_marginBottom="10dp"
+        android:textColorHint="@color/text_hint"
         />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:text="搜索"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="5dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="@drawable/edit_bg_selector"
+        android:background="@color/background"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -79,19 +110,22 @@
         android:hint="对应的提示文字"
         android:inputType="text"
         android:imeOptions="actionSearch"
+        android:layout_marginBottom="10dp"
+        android:textColorHint="@color/text_hint"
         />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:text="发送"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="5dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="@drawable/edit_bg_selector"
+        android:background="@color/background"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -102,19 +136,22 @@
         android:inputType="text"
         android:imeOptions="actionSend"
         android:imeActionLabel="发送"
+        android:layout_marginBottom="10dp"
+        android:textColorHint="@color/text_hint"
         />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:text="下一项"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="5dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="@drawable/edit_bg_selector"
+        android:background="@color/background"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -124,19 +161,22 @@
         android:hint="对应的提示文字"
         android:inputType="text"
         android:imeOptions="actionNext"
+        android:layout_marginBottom="10dp"
+        android:textColorHint="@color/text_hint"
         />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:text="完成"
         android:textSize="14sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="5dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="@drawable/edit_bg_selector"
+        android:background="@color/background"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -147,5 +187,6 @@
         android:inputType="text"
         android:imeOptions="actionDone"
         android:imeActionLabel="完成"
+        android:textColorHint="@color/text_hint"
         />
 </LinearLayout>

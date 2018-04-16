@@ -24,8 +24,8 @@ import java.util.List;
  */
 
 public class TabActivity extends BaseActivity {
-    private Toolbar mToolBar;
-    private TextView tv_title;
+    private TextView title;
+    private ImageView back;
     private TabLayout tabLayout1;
     private TabLayout tabLayout2;
     private TabLayout tabLayout3;
@@ -47,25 +47,25 @@ public class TabActivity extends BaseActivity {
         initView();
         initTab(tabLayout1,"1");
         initTab(tabLayout2,"12");
-        initTab(tabLayout3,"...");
-        initTab(tabLayout4, " ");
+        initTab(tabLayout3,"···");
+        initTab(tabLayout4, "");
     }
 
     private void initView() {
-        tv_title = findViewById(R.id.tv_title);
-        tv_title.setText("标签栏");
-        mToolBar = findViewById(R.id.toolbar);
-        tabLayout1 = findViewById(R.id.tabLayout1);
-        tabLayout2 = findViewById(R.id.tabLayout2);
-        tabLayout3 = findViewById(R.id.tabLayout3);
-        tabLayout4 = findViewById(R.id.tabLayout4);
-        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
-        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+        back = findViewById(R.id.back);
+        title = findViewById(R.id.title);
+        title.setText("标签栏");
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+        tabLayout1 = findViewById(R.id.tabLayout1);
+        tabLayout2 = findViewById(R.id.tabLayout2);
+        tabLayout3 = findViewById(R.id.tabLayout3);
+        tabLayout4 = findViewById(R.id.tabLayout4);
+
     }
 
     TextView itemTv;

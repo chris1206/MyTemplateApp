@@ -17,14 +17,16 @@ import android.widget.TextView;
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
 import com.yto.template.customview.DividerGridItemDecoration;
+import com.yto.template.ui.adapter.GridSpacingItemDecoration;
 
 /**
  * Created by Chris on 2018/1/29.
  */
 
 public class GridActivity extends BaseActivity {
-    private Toolbar mToolBar;
-    private TextView tv_title;
+//    private Toolbar mToolBar;
+    private TextView title;
+    private ImageView back;
     private LinearLayout view_container;
     private RecyclerView mRecyclerVIew;
     private RecyclerGridViewAdapter myAdapter;
@@ -63,20 +65,26 @@ public class GridActivity extends BaseActivity {
     }
 
     private void initView() {
-        tv_title = findViewById(R.id.tv_title);
-        tv_title.setText("九宫格");
-        mToolBar = findViewById(R.id.toolbar);
-//        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
-//        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
+        back = findViewById(R.id.back);
+        title = findViewById(R.id.title);
+        title.setText("九宫格");
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         view_container = findViewById(R.id.frag_grid_container);
         mRecyclerVIew = findViewById(R.id.id_recyclerview);
         mRecyclerVIew.setLayoutManager(new GridLayoutManager(this,2));
 //        mRecyclerVIew.addItemDecoration(new DividerGridItemDecoration(this));
+
+        int spanCount = 2; // 2 columns
+        int spacing = 60; // 50px
+        boolean includeEdge = false;
+        mRecyclerVIew.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+
+
         mRecyclerVIew.setAdapter(myAdapter);
 
     }

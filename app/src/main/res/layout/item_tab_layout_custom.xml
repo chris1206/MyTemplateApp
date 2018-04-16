@@ -17,7 +17,7 @@
         android:layout_below="@id/iv_menu_item"
         android:text="Item"
         android:layout_marginTop="8dp"
-        android:textSize="10sp"
+        android:textSize="11sp"
         android:layout_centerHorizontal="true"
         android:textColor="@drawable/text_selector"/>
 
@@ -28,6 +28,6 @@
         android:visibility="invisible"
         android:text="你"
         android:layout_toRightOf="@id/iv_menu_item"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="-4dp"/>
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="-7dp"/>
 </RelativeLayout>

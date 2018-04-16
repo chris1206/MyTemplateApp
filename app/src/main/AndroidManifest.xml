@@ -69,14 +69,14 @@
         <activity
             android:name=".ui.EditActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity
             android:name=".ui.SelectorActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.SearchViewActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity
             android:name=".ui.ScanActivity"
             android:screenOrientation="portrait" />

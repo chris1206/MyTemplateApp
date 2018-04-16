@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_bg_color_lightgrey">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/title_bar_black"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -62,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginRight="14dp"
                     android:text="详细信息"
                     android:textSize="14sp"/>
             </RelativeLayout>
@@ -270,7 +271,9 @@
                     android:layout_marginTop="18dp"
                     android:layout_marginBottom="18dp"
                     android:layout_marginLeft="14dp"
-                    android:src="@drawable/head"/>
+                    android:padding="20dp"
+                    android:src="@mipmap/head"
+                    android:background="@drawable/bg_round_grey"/>
                 <TextView
                     android:id="@+id/tv3"
                     android:layout_width="wrap_content"
@@ -350,7 +353,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginRight="14dp"
                     android:text="详细信息"
                     android:textSize="14sp"/>
             </RelativeLayout>
@@ -526,11 +529,15 @@
                     android:text="标题"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
                 <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/checkbox"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="14dp"/>
+                    android:layout_marginRight="14dp"
+                    android:button="@null"
+                    android:background="@drawable/os_selector"
+                    />
             </RelativeLayout>
 
             <RelativeLayout
@@ -547,12 +554,13 @@
                     android:textSize="16sp"
                     android:text="标题"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
-                <Switch
-                    android:layout_width="wrap_content"
+                <android.support.v7.widget.SwitchCompat
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="14dp"/>
+                    android:layout_marginRight="12dp"
+                    app:theme="@style/MySwitch"/>
             </RelativeLayout>
 
         </LinearLayout>

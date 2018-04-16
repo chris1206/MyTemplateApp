@@ -17,7 +17,7 @@
             android:gravity="left|center_vertical"
             android:paddingLeft="@dimen/pickerview_topbar_padding"
             android:text="@string/pickerview_cancel"
-            android:textColor="@drawable/selector_pickerview_btn"
+            android:textColor="#333333"
             android:textSize="@dimen/pickerview_topbar_btn_textsize" />
 
         <TextView
@@ -52,25 +52,26 @@
 
         <com.bigkoo.pickerview.lib.WheelView
             android:id="@+id/options1"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+             />
 
         <com.bigkoo.pickerview.lib.WheelView
             android:id="@+id/options2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_weight="1"
+            />
 
         <com.bigkoo.pickerview.lib.WheelView
             android:id="@+id/options3"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_weight="1"/>
         <com.bigkoo.pickerview.lib.WheelView
             android:id="@+id/options4"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

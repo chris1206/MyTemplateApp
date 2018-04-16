@@ -41,7 +41,7 @@
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:text="拍照上传"
         android:textSize="20sp"
         android:textColor="#333333"
@@ -59,7 +59,7 @@
         android:layout_marginLeft="10dp"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:text="拍照或图片上传"
         android:textSize="20sp"
         android:textColor="#333333"

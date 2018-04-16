@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg_color_lightgrey">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/title_bar_black"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                     android:layout_marginLeft="13dp"
                     android:layout_marginTop="6dp"
                     android:textSize="12sp"
-                    android:text="倒序排列"
+                    android:text="点击条形码：遮盖在当前页面上层；横屏且亮度提到最高；点击屏幕退出查看"
                     android:textColor="@color/btn_selected" />
 
                 <View

@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,8 +39,8 @@ import java.lang.reflect.Method;
 
 public class NavigationActivity extends BaseActivity{
 
-    private Toolbar mToolBar;
-    private TextView tv_title;
+    private TextView title;
+    private ImageView back;
     private ListView mLv;
     private SearchView mSearchView;
     private SearchView.SearchAutoComplete mSearchAutoComplete;
@@ -63,9 +64,16 @@ public class NavigationActivity extends BaseActivity{
         et_search = findViewById(R.id.et_search);
         mTabLayout1 = findViewById(R.id.tabLayout1);
         mTabLayout2 = findViewById(R.id.tabLayout2);
-        tv_title = findViewById(R.id.tv_title);
-        tv_title.setText("导航栏");
-        mToolBar = findViewById(R.id.toolbar);
+
+        back = findViewById(R.id.back);
+        title = findViewById(R.id.title);
+        title.setText("导航栏");
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         initCustomSearchView();
 
@@ -78,13 +86,20 @@ public class NavigationActivity extends BaseActivity{
     private void initTabs() {
         mTabLayout1.addTab(mTabLayout1.newTab().setText("选项一"));
         mTabLayout1.addTab(mTabLayout1.newTab().setText("选项二"));
+        mTabLayout1.setSelectedTabIndicatorColor(getResources().getColor(R.color.indicator_color));
+        mTabLayout1.setBackground(getResources().getDrawable(R.drawable.bg_white_radius));
+//        mTabLayout1
+//        mTabLayout1.setBackgroundColor(getResources().getColor(R.color.red));
         mTabLayout2.addTab(mTabLayout2.newTab().setText("选项一"));
         mTabLayout2.addTab(mTabLayout2.newTab().setText("选项二"));
         mTabLayout2.addTab(mTabLayout2.newTab().setText("选项三"));
+        mTabLayout2.setSelectedTabIndicatorColor(getResources().getColor(R.color.indicator_color));
+        mTabLayout2.setBackground(getResources().getDrawable(R.drawable.bg_white_radius));
+//        mTabLayout2.setBackgroundColor(getResources().getColor(R.color.red));
     }
 
     private void initCustomSearchView() {
-        mToolBar.setFocusable(true);
+//        mToolBar.setFocusable(true);
         //点击输入框搜搜按钮时的触发事件
         hideKeyboard();
     }
@@ -101,13 +116,13 @@ public class NavigationActivity extends BaseActivity{
     }
 
     private void initCustomToolbar() {
-        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
-        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+//        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
+//        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
 
         Toolbar toolbar_custom = findViewById(R.id.toolbar_custom);
         setSupportActionBar(toolbar_custom);

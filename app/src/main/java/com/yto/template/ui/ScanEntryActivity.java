@@ -19,11 +19,13 @@ public class ScanEntryActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_scan_entry;
+
     }
 
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        title.setText("扫描");
     }
 
     @OnClick({R.id.back,R.id.tv_scan_entry})

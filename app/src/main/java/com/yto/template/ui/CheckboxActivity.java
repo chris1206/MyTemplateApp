@@ -2,6 +2,7 @@ package com.yto.template.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -63,11 +64,11 @@ public class CheckboxActivity extends BaseActivity {
             public void onItemClickClick(CheckBox view, int position) {
                 if(view.isChecked()){
                     vList.add(view);
-                    Toast.makeText(CheckboxActivity.this,view.getText(),Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CheckboxActivity.this,view.getText(),Toast.LENGTH_SHORT).show();
                 }else{
                     if(vList.contains(view)){
                         vList.remove(view);
-                        Toast.makeText(CheckboxActivity.this,"移除"+view.getText(),Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(CheckboxActivity.this,"移除"+view.getText(),Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -75,8 +76,7 @@ public class CheckboxActivity extends BaseActivity {
 
         MyAdapter myAdapter = new MyAdapter(dataList,1);
         recycle_view_vertical.setAdapter(myAdapter);
-        MyItemDecoration myItemDecoration1 = new MyItemDecoration(1);
-        recycle_view_vertical.addItemDecoration(myItemDecoration1);
+        recycle_view_vertical.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recycle_view_vertical.setLayoutManager(linearLayoutManager);
         myAdapter.setItemClickListener(new MyAdapter.ItemClickListener() {
@@ -84,11 +84,9 @@ public class CheckboxActivity extends BaseActivity {
             public void onItemClickClick(CheckBox view, int position) {
                 if(view.isChecked()){
                     vList2.add(view);
-                    Toast.makeText(CheckboxActivity.this,"选中"+view.getText(),Toast.LENGTH_SHORT).show();
                 }else{
                     if(vList2.contains(view)){
                         vList2.remove(view);
-                        Toast.makeText(CheckboxActivity.this,"移除"+view.getText(),Toast.LENGTH_SHORT).show();
                     }
                 }
             }

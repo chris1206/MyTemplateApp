@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yto.template.R;
@@ -14,8 +15,8 @@ import com.yto.template.base.BaseActivity;
  */
 
 public class QRCodeActivity extends BaseActivity {
-    private Toolbar mToolBar;
-    private TextView tv_title;
+    private TextView title;
+    private ImageView back;
 
     @Override
     protected int getLayoutId() {
@@ -28,11 +29,10 @@ public class QRCodeActivity extends BaseActivity {
     }
 
     private void initView() {
-        tv_title = findViewById(R.id.tv_title);
-        tv_title.setText("条形码");
-        mToolBar = findViewById(R.id.toolbar);
-        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
-        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+        back = findViewById(R.id.back);
+        title = findViewById(R.id.title);
+        title.setText("条形码");
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();

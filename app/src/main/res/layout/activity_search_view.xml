@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/ddd"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:text="搜索框"
         android:textSize="20sp"
         android:textColor="#333333"
@@ -34,15 +34,16 @@
     android:paddingLeft="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/white">
         <com.qbnet.viewutils.XEditText
             android:id="@+id/xet_search_common"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/edit_bg_selector"
+            android:background="@color/background"
+            android:textColorHint="@color/text_hint"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -54,6 +55,7 @@
             android:imeOptions="actionSearch"
             android:drawableLeft="@mipmap/search"
             android:drawablePadding="5dp"
+            
             />
     </LinearLayout>
     <TextView
@@ -66,15 +68,16 @@
         android:paddingLeft="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/white">
         <com.qbnet.viewutils.XEditText
             android:id="@+id/xet_search_scan"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/edit_bg_selector"
+            android:background="@color/background"
+            android:textColorHint="@color/text_hint"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -105,15 +108,16 @@
         android:paddingLeft="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/white">
         <com.qbnet.viewutils.XEditText
             android:id="@+id/xet_scan"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/edit_bg_selector"
+            android:background="@color/background"
+            android:textColorHint="@color/text_hint"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -146,15 +150,16 @@
         android:paddingLeft="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/white">
         <com.qbnet.viewutils.XEditText
             android:id="@+id/xet_histroy_one"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/edit_bg_selector"
+            android:background="@color/background"
+            android:textColorHint="@color/text_hint"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -192,7 +197,7 @@
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/delete"
+            android:src="@mipmap/search_delete"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"/>
@@ -213,15 +218,16 @@
         android:paddingLeft="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/white">
         <com.qbnet.viewutils.XEditText
             android:id="@+id/xet_histroy_two"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/edit_bg_selector"
+            android:background="@color/background"
+            android:textColorHint="@color/text_hint"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -254,10 +260,12 @@
     <TextView
         android:id="@+id/tv_all_history"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:background="@color/white"
         android:text="查看全部记录"
-        android:gravity="center"/>
+        android:textColor="#3184e4"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"/>
     </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

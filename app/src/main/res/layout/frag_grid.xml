@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:id="@+id/frag_grid_container">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/title_bar_black"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +43,10 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/id_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp">
     </android.support.v7.widget.RecyclerView>
 
 

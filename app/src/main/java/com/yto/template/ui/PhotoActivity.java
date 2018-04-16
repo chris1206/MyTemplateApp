@@ -13,6 +13,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class PhotoActivity extends BaseActivity{
 
     private Toolbar mToolBar;
     private TextView tv_title;
+    private ImageView back;
 
     @Override
     protected int getLayoutId() {
@@ -47,11 +49,11 @@ public class PhotoActivity extends BaseActivity{
     @Override
     protected void init(Bundle savedInstanceState) {
 
-        tv_title = findViewById(R.id.tv_title);
+        tv_title = findViewById(R.id.title);
+        back = findViewById(R.id.back);
         tv_title.setText("拍照");
-        mToolBar = findViewById(R.id.toolbar);
-        mToolBar.setNavigationIcon(getResources().getDrawable(R.mipmap.arrow_white));
-        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();

@@ -13,7 +13,7 @@
             <!--填充颜色为白色-->
             <solid android:color="@color/white" />
             <!-- 描边 -->
-            <stroke android:width="1dp" android:color="@color/stroke" />
+            <stroke android:width="1dp" android:color="@color/stroke_line" />
         </shape>
     </item>
     <!--单击时是一个带圆角,白色背景,绿色边框的矩形-->
@@ -24,7 +24,7 @@
             <!--填充颜色为白色-->
             <solid android:drawable="@drawable/ripple_touch_bg"/>
             <!--描边-->
-            <stroke android:width="1dp" android:color="@color/stroke" />
+            <stroke android:width="1dp" android:color="@color/stroke_line" />
         </shape>
     </item>
 

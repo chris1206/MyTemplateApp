@@ -7,17 +7,14 @@
     android:background="@color/colorPrimary"
     >
 
-    <TextView
+    <ImageView
         android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="13dp"
-        android:drawableLeft="@mipmap/arrow_white"
-        android:text="返回"
-        android:textColor="@color/white"
-        android:drawablePadding="5dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/arrow_white"
         />
 
     <TextView

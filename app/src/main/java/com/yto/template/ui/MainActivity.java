@@ -8,6 +8,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
@@ -33,8 +36,12 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.tabSegment) QMUITabSegment mTabSegment;
     @BindView(R.id.contentViewPager) ViewPager mContentViewPager;
+    @BindView(R.id.back)
+    ImageView back;
+    @BindView(R.id.title)
+    TextView title;
     //注意butterknife只能对view进行注解，toolbar不支持
-    private Toolbar mTopBar;
+//    private Toolbar mTopBar;
     private List<Fragment> fragmentList = new ArrayList<>();
     private MyPagerAdapter mPagerAdapter;
 
@@ -52,7 +59,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initTopBar() {
-        mTopBar = findViewById(R.id.toolbar);
+//        mTopBar = findViewById(R.id.toolbar);
+        back.setVisibility(View.GONE);
+        title.setText("移动APP组件标准化常用控件库");
     }
 
     private void initAdapter() {

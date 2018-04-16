@@ -238,7 +238,7 @@ public class UpLoadActivity extends BaseActivity {
             final String path=listUrls.get(position);
             if (path.equals("other")){
                 if(type==0){
-                    holder.image.setImageResource(R.mipmap.camera_select);
+                    holder.image.setImageResource(R.mipmap.upload);
                 }else{
                     holder.image.setImageResource(R.mipmap.add);
                 }

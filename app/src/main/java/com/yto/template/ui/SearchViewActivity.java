@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -90,7 +91,7 @@ public class SearchViewActivity extends BaseActivity {
         tlist.add("A201701777");
         tflowAdapter = new FlowAdapter(this,tlist,1,hasChecked);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rv_two.addItemDecoration(new MyItemDecoration(1));
+        rv_two.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         rv_two.setLayoutManager(linearLayoutManager);
         rv_two.setAdapter(tflowAdapter);
 
@@ -187,27 +188,6 @@ public class SearchViewActivity extends BaseActivity {
             String result = data.getStringExtra("result");
             xet_scan.setText(TextUtils.isEmpty(result)?"":result);
         }
-    }
-
-    public void initHistoryOnePop(){
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View contentview = inflater.inflate(R.layout.pop_search_history, null);
-        historyPop = new PopupWindow(contentview, ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        historyPop.setFocusable(true);
-        historyPop.setOutsideTouchable(true);
-
-        ImageView delete = contentview.findViewById(R.id.delete);
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                historyPop.dismiss();
-                list.clear();
-                flowAdapter.notifyDataSetChanged();
-            }
-        });
-
-        historyPop.setAnimationStyle(R.style.MyPopupWindow_anim_style);
     }
 
 

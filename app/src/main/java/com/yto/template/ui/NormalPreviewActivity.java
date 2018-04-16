@@ -101,10 +101,12 @@ public class NormalPreviewActivity extends BaseActivity{
 
             imageView.setImageBitmap(BitmapFactory.decodeResource(
                 getResources(), imageResIds[i]));
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT));
+//            imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                    ViewGroup.LayoutParams.MATCH_PARENT));
+
 //        img.setScaleType(ImageView.ScaleType.CENTER);
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
+//            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             imageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
                 @Override
                 public void onPhotoTap(View view, float x, float y) {
@@ -117,7 +119,9 @@ public class NormalPreviewActivity extends BaseActivity{
             //加小白点，指示器（这里的小圆点定义在了drawable下的选择器中了，也可以用小图片代替）
             pointView = new View(this);
             pointView.setBackgroundResource(R.drawable.point_selector); //使用选择器设置背景
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(8, 8);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    Utils.dip2px(this,8),
+                    Utils.dip2px(this,8));
             if (i != 0){
                 //如果不是第一个点，则设置点的左边距
                 layoutParams.leftMargin = 10;

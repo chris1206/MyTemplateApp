@@ -17,8 +17,7 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:layout_marginBottom="120dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginBottom="100dp">
     </LinearLayout>
 
     <FrameLayout
@@ -26,17 +25,16 @@
         android:layout_width="match_parent"
         android:layout_height="66dp"
         android:background="#64000000">
-        <TextView
+        <ImageView
             android:id="@+id/tv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="返回"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:layout_marginLeft="10dp"
             android:drawablePadding="5dp"
             android:layout_marginTop="30dp"
-            android:drawableLeft="@mipmap/arrow_white"/>
+            android:src="@mipmap/arrow_white"/>
         <TextView
             android:id="@+id/tv_index"
             android:layout_width="wrap_content"

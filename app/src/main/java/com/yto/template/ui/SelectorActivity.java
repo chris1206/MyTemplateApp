@@ -37,6 +37,8 @@ import com.yto.template.base.BaseActivity;
 import com.yto.template.utils.DateUtil;
 
 import java.awt.font.NumericShaper;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,6 +52,7 @@ import butterknife.OnClick;
 
 public class SelectorActivity extends BaseActivity {
     public static final String TAG = "SelectorActivity";
+    private Context context;
     @BindView(R.id.title)
     TextView title;
     @BindView(R.id.tv_selector_common)
@@ -96,6 +99,7 @@ public class SelectorActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         ButterKnife.bind(this);
+        context = this;
         title.setText("选择器");
         sItem.add("选项一");
         sItem.add("选项二");
@@ -193,7 +197,7 @@ public class SelectorActivity extends BaseActivity {
                 .setTitleText("请选择内容")
                 .setCancelColor(Color.parseColor("#333333"))
                 .setLineSpacingMultiplier(2.0f)
-
+                .setDividerColor(Color.parseColor("#DDDDDD"))
                 .build();
 
         pvCustomOptions.setPicker(sItem);//添加数据
@@ -213,6 +217,7 @@ public class SelectorActivity extends BaseActivity {
                 .setCancelColor(Color.parseColor("#333333"))
                 .setLineSpacingMultiplier(2.0f)
                 .setTextXOffset(20,10,-20)
+                .setDividerColor(Color.parseColor("#DDDDDD"))
                 .build();
 
         pvTimeOptions.setNPicker(tList,hList,mList);//添加数据
@@ -239,7 +244,7 @@ public class SelectorActivity extends BaseActivity {
                 .setType(new boolean[]{true, true, true, false, false, false})
                 .setLabel("年", "月", "日", "", "", "")
                 .isCenterLabel(false)
-                .setDividerColor(Color.DKGRAY)
+                .setDividerColor(Color.parseColor("#DDDDDD"))
                 .setContentSize(21)
                 .setDate(selectedDate)
                 .setRangDate(startDate, endDate)
@@ -247,6 +252,7 @@ public class SelectorActivity extends BaseActivity {
 //                .setBackgroundId(0x00FFFFFF) //设置外部遮罩颜色
                 .setDecorView(null)
                 .build();
+
     }
 
     private void initTimeDayPicker() {
@@ -256,6 +262,7 @@ public class SelectorActivity extends BaseActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         pop.setFocusable(true);
         pop.setOutsideTouchable(true);
+        pop.setBackgroundDrawable(new BitmapDrawable());
 
         WheelView options1 = contentview.findViewById(R.id.options1);
         WheelAdapter wheelAdapter =  new ArrayWheelAdapter(wList);
@@ -281,12 +288,20 @@ public class SelectorActivity extends BaseActivity {
         options4.setCurrentItem(0);
 
         Button btnCancel = contentview.findViewById(R.id.btnCancel);
+
+        pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                if(!pop.isShowing()){
+                    darkenBackground(1f);
+                }
+            }
+        });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(pop!=null&&pop.isShowing()){
                     pop.dismiss();
-                    darkenBackground(1f);
                 }
             }
         });
@@ -299,7 +314,6 @@ public class SelectorActivity extends BaseActivity {
                 tv_selector_time_day.setText(wList.get(options1.getCurrentItem())+" "+tList.get(options2.getCurrentItem())+" "+hStr+":"+mStr);
                 if(pop!=null&&pop.isShowing()){
                     pop.dismiss();
-                    darkenBackground(1f);
                 }
             }
         });
@@ -330,7 +344,7 @@ public class SelectorActivity extends BaseActivity {
             String week = DateUtil.DateToWeek(time);
             String data = month+"月"+i+"日  "+week;
             if(i == day){
-                wList.add("今天");
+                wList.add("今天  ");
             }else{
                 wList.add(data);
             }
@@ -388,7 +402,10 @@ public class SelectorActivity extends BaseActivity {
                 public void onOptionsSelect(int i, int i1, int i2, View view) {
                     tv_selector_provincial_two.setText(items[i]);
                 }
-            }).build();
+            })
+                    .setCancelColor(Color.parseColor("#333333"))
+                    .setDividerColor(Color.parseColor("#DDDDDD"))
+                    .build();
             pvOptions.setPicker(list);
         }
         jList.clear();

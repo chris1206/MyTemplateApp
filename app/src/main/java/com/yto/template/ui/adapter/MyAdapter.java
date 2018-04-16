@@ -1,6 +1,9 @@
 package com.yto.template.ui.adapter;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter{
     //数据源
     private List<String> dataList;
     private int type;
+    Context context;
     //构造函数
     public MyAdapter(List<String> dataList) {
         this.dataList = dataList;
@@ -31,6 +35,7 @@ public class MyAdapter extends RecyclerView.Adapter{
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        context = parent.getContext();
         if(type == 0){
             return new BodyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_text_layout, null));
         }else if(type == 1){
@@ -47,9 +52,12 @@ public class MyAdapter extends RecyclerView.Adapter{
         int p = dataList.size() - 1;
         if(position == p){
             ((BodyViewHolder) holder).getCheckBox().setEnabled(false);
-            ((BodyViewHolder) holder).getCheckBox().setBackgroundColor(Color.parseColor("#cccccc"));
+            ((BodyViewHolder) holder).getCheckBox().setBackgroundColor(Color.parseColor("#ffffff"));
+            ((BodyViewHolder) holder).getCheckBox().setTextColor(Color.parseColor("#bbbbbb"));
             if(type == 1){
-                ((BodyViewHolder) holder).getCheckBox().setCompoundDrawables(null,null,null,null);
+                Drawable drawable = context.getResources().getDrawable(R.drawable.oval_full_shape);
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                ((BodyViewHolder) holder).getCheckBox().setCompoundDrawables(null,null,drawable,null);
             }
         }
 

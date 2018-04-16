@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#dddddd"
+    android:background="@color/background"
     tools:context="com.yto.template.ui.RadioActivity">
     <include layout="@layout/title_bar_black"/>
     <TextView
@@ -28,16 +28,23 @@
             android:drawableRight="@drawable/os_selector"
             android:paddingRight="10dp"
             android:background="@drawable/bg_selector"
+
             />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"/>
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:button="@null"
             android:text="禁选项"
+            android:textColor="@color/text_hint"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:background="@drawable/bg_selector"
+            android:background="#ffffff"
             android:enabled="false"
+            android:drawableRight="@drawable/oval_full_shape"
             />
 
     <TextView
@@ -54,6 +61,7 @@
         android:id="@+id/radio_group_more"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/line"
         >
         <RadioButton
             android:id="@+id/radio_first_more"
@@ -109,9 +117,11 @@
             android:layout_height="40dp"
             android:button="@null"
             android:text="禁选项"
+            android:textColor="#bbbbbb"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:background="@drawable/bg_selector"
+            android:background="#ffffff"
+            android:drawableRight="@drawable/oval_full_shape"
             android:enabled="false"
             />
     </RadioGroup>
@@ -151,11 +161,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
         >
         <RadioButton
             android:id="@+id/radio_first_equal"
-            android:layout_width="100dp"
+            android:layout_width="140dp"
             android:layout_height="40dp"
             android:button="@null"
             android:text="选项一"
@@ -164,7 +174,7 @@
             />
         <RadioButton
             android:id="@+id/radio_two_equal"
-            android:layout_width="100dp"
+            android:layout_width="140dp"
             android:layout_height="40dp"
             android:button="@null"
             android:text="选项二"

@@ -3,6 +3,7 @@ package com.yto.template.ui;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -62,8 +64,9 @@ public class EditActivity extends BaseActivity {
     ScrollEditText et_more;
     @BindView(R.id.tv_text_num)
     TextView tv_text_num;
-    @BindView(R.id.cb_send)
-    CheckBox cb_send;
+    @BindView(R.id.tv_send)
+    TextView tv_send;
+    boolean isCheck = false;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_edit;
@@ -180,6 +183,7 @@ public class EditActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
             }
         });
+
     }
 
 
@@ -198,14 +202,30 @@ public class EditActivity extends BaseActivity {
         return drawable;
     }
 
-    @OnClick({R.id.back,R.id.cb_send})
+    @OnClick({R.id.back,R.id.tv_send})
     void onClick(View view){
         switch (view.getId()){
             case R.id.back:
                 onBackPressed();
                 break;
-            case R.id.cb_send:
-                cb_send.setClickable(false);
+            case R.id.tv_send:
+                if(!isCheck){
+                    isCheck = true;
+                    tv_send.setBackground(getResources().getDrawable(R.drawable.rec_grayddd_shape));
+
+                    CountDownTimer timer = new CountDownTimer(60*1000, 1000) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            // TODO Auto-generated method stub
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            isCheck = false;
+                            tv_send.setBackground(getResources().getDrawable(R.drawable.rec_shape));
+                        }
+                    }.start();
+                }
                 break;
         }
 

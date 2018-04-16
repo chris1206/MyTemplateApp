@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.yto.template.ui.CheckboxActivity"
+    android:background="@color/background"
     >
     <include layout="@layout/title_bar_black"/>
     <TextView

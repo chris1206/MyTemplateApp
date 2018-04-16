@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.yto.template.ui.MainActivity">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/title_bar_black"/>
 
     <com.yto.template.customview.QMUITabSegment
         android:id="@+id/tabSegment"
