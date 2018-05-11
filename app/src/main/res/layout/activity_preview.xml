@@ -14,25 +14,73 @@
         android:layout_height="wrap_content"
         android:gravity="center" />
 
-    <ImageView
-        android:id="@+id/id_iv_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="40dp"
-        android:padding="15dp"
-        android:src="@mipmap/cancel"
-        />
 
-    <ImageView
-        android:id="@+id/id_iv_ok"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="40dp"
-        android:padding="15dp"
-        android:src="@mipmap/ok"
-        />
+        android:layout_marginBottom="30dp">
+        <ImageView
+            android:id="@+id/id_iv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43dp"
+            android:padding="5dp"
+            android:onClick="onClick"
+            android:src="@mipmap/delete3"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重拍"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/id_iv_cancel"
+            android:layout_alignLeft="@id/id_iv_cancel"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="4dp"/>
+
+        <ImageView
+            android:id="@+id/id_iv_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="43dp"
+            android:padding="5dp"
+            android:onClick="onClick"
+            android:src="@mipmap/right_arrow3"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一步"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/id_iv_ok"
+            android:layout_alignLeft="@id/id_iv_ok"
+            android:layout_marginTop="4dp"/>
+
+        <ImageView
+            android:id="@+id/iv_shutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick"
+            android:src="@mipmap/camera_normal_new"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/tv_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="继续拍照"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/iv_shutter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
 </RelativeLayout>

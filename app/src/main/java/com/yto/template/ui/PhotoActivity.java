@@ -1,18 +1,11 @@
 package com.yto.template.ui;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Surface;
-import android.view.SurfaceHolder;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +13,6 @@ import android.widget.Toast;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 /**
  * Created by Chris on 2018/3/15.
@@ -87,9 +75,25 @@ public class PhotoActivity extends BaseActivity{
 
     }
 
+    /**
+     * 多拍模式
+     * @param view
+     */
     public void multiCapture(View view){
-        startActivity(new Intent(this, Camera2Activity.class));
+        //采用Camera2 API实现
+//        startActivity(new Intent(this, Camera2Activity.class));
+        startActivity(new Intent(this, CameraActivity2.class));
 //        Toast.makeText(this, "连拍", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 连拍模式
+     * @param view
+     */
+    public void continousCapture(View view){
+        Intent intent = new Intent(this, CameraActivity2.class);
+        intent.putExtra("continousCapture","1");
+        startActivity(intent);
     }
 
 

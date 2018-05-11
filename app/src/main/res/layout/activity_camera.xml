@@ -30,10 +30,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:padding="15dp"
+            android:padding="5dp"
             android:gravity="center"
-            android:src="@mipmap/camera_flash_off"
+            android:src="@mipmap/flash_lamp_close3"
             android:onClick="onClick"
+            />
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/id_iv_flash_switch"
+            android:layout_marginTop="25dp"
+            android:numColumns="3"
             />
 
         <ImageView
@@ -46,6 +56,7 @@
             android:gravity="center"
             android:src="@mipmap/camera_config"
             android:onClick="onClick"
+            android:visibility="gone"
             />
 
         <ImageView
@@ -59,6 +70,7 @@
             android:gravity="center"
             android:src="@mipmap/camera_change"
             android:onClick="onClick"
+            android:visibility="gone"
             />
         <ImageView
             android:id="@+id/id_preview_iv"
@@ -66,9 +78,11 @@
             android:layout_height="match_parent" />
     </RelativeLayout>
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true" >
 
@@ -76,26 +90,46 @@
             android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginStart="43dp"
             android:layout_centerVertical="true"
-            android:gravity="center"
             android:src="@mipmap/left_back_arrow"
             android:onClick="onClick"
              />
-        <!--
-                 <ImageView
-                     android:id="@+id/choose_picture_btn"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_alignParentBottom="true"
-                     android:layout_alignParentRight="true"
-                     android:layout_margin="10dp"
-                     android:layout_marginLeft="10dp"
-                     android:gravity="center"
-                     android:src="@mipmap/camera_config"
-                     android:onClick="onClick"
-                     />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/back_btn"
+            android:layout_alignLeft="@id/back_btn"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="4dp"/>
+        <ImageView
+            android:id="@+id/id_iv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="43dp"
+            android:layout_centerVertical="true"
+            android:onClick="onClick"
+            android:src="@mipmap/right_arrow3"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/id_tv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="38dp"
+            android:text="下一步"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/id_iv_next"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/id_iv_shutter"
@@ -104,7 +138,8 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:onClick="onClick"
-            android:src="@mipmap/camera_normal_new"
+            android:src="@mipmap/camera_take"
+
             />
     </RelativeLayout>
 

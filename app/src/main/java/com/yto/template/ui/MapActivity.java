@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,7 @@ import java.util.List;
 
 public class MapActivity extends AppCompatActivity {
     private TextView title;
-    private TextView back;
+    private ImageView back;
     private TextView btn_summit;
     MapView mMapView = null;
     BaiduMap mBaiduMap = null;

@@ -8,7 +8,7 @@
 
     <include layout="@layout/title_bar_black"/>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -19,7 +19,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="15dp"
                 android:text="常规导航栏"
                 android:textColor="@color/btn_normal" />
@@ -38,8 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="6dp"
-                    android:padding="10dp"
+                    android:layout_marginLeft="13dp"
                     android:src="@mipmap/arrow_black"/>
                 <TextView
                     android:id="@+id/title"
@@ -77,7 +76,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="15dp"
                 android:text="可操作导航栏"
                 android:textColor="@color/btn_normal" />
@@ -85,7 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="10dp"
                 android:textSize="12sp"
                 android:text="样式一：右侧为图标形式可操作按钮"
@@ -103,8 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="6dp"
-                    android:padding="10dp"
+                    android:layout_marginLeft="13dp"
                     android:src="@mipmap/arrow_black"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -150,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginLeft="3dp"
                     android:paddingLeft="10dp"
                     android:src="@mipmap/arrow_black"/>
                 <TextView
@@ -162,7 +160,7 @@
                     android:layout_marginLeft="4dp"
                     android:text="返回"
                     android:textColor="@color/btn_normal"
-                    android:textSize="16sp"/>
+                    android:textSize="14sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -171,7 +169,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="关闭"
                     android:textColor="@color/btn_normal"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -205,7 +203,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="10dp"
                 android:textSize="12sp"
                 android:text="样二：右侧为文字形式可操作按钮"
@@ -223,7 +221,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginLeft="3dp"
                     android:padding="10dp"
                     android:src="@mipmap/arrow_black"/>
                 <TextView
@@ -269,7 +267,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginLeft="3dp"
                     android:paddingLeft="10dp"
                     android:src="@mipmap/arrow_black"/>
                 <TextView
@@ -281,7 +279,7 @@
                     android:layout_marginLeft="4dp"
                     android:text="返回"
                     android:textColor="@color/btn_normal"
-                    android:textSize="16sp"/>
+                    android:textSize="14sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -290,7 +288,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="关闭"
                     android:textColor="@color/btn_normal"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -324,7 +322,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="44dp"
                 android:text="搜索导航栏"
                 android:textColor="@color/btn_normal" />
@@ -341,7 +339,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginLeft="3dp"
                     android:paddingLeft="10dp"
                     android:src="@mipmap/arrow_black"/>
 
@@ -351,7 +349,7 @@
                     android:layout_height="wrap_content"
                     android:text="取消"
                     android:textColor="@color/btn_normal"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="14dp"
@@ -377,8 +375,6 @@
                     android:layout_toStartOf="@id/iv_qrcode"
                     android:drawableLeft="@mipmap/search"
                     android:drawableStart="@mipmap/search"
-                    android:drawableRight="@mipmap/scan"
-                    android:drawableEnd="@mipmap/scan"
                     android:drawablePadding="5dp"
                     android:layout_marginLeft="14dp"
                     android:layout_marginRight="14dp"
@@ -390,19 +386,26 @@
                     android:paddingRight="10dp"
                     android:textColor="@color/btn_normal"
                     android:text=""
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:layout_centerVertical="true"
                     android:imeOptions="actionSearch"
                     android:background="@drawable/bg_grey_reg"
                     android:maxLines="1"
+                    android:textCursorDrawable="@drawable/color_cursor"
                      />
 
             </RelativeLayout>
-
+            <ViewStub
+                android:id="@+id/myViewStub"
+                android:inflatedId="@+id/myInflatedViewId"
+                android:layout="@layout/stub_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="44dp"
                 android:text="分段导航栏"
                 android:textColor="@color/btn_normal" />
@@ -439,7 +442,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginLeft="3dp"
                     android:paddingLeft="10dp"
                     android:src="@mipmap/arrow_black"/>
                 <android.support.design.widget.TabLayout
@@ -453,7 +456,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="44dp"
                 android:text="自定义导航栏"
                 android:textColor="@color/btn_normal"
@@ -481,7 +484,7 @@
                 android:visibility="invisible"/>
 
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"

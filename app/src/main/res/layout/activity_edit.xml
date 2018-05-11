@@ -84,7 +84,7 @@
                 android:textSize="18sp"
                 android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"/>
-            <com.qbnet.viewutils.XEditText
+            <com.yto.template.customview.XEditText
                 android:id="@+id/xet_common"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -100,6 +100,7 @@
                 android:inputType="text"
                 android:textColorHint="@color/text_hint"
                 android:drawablePadding="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
                 />
         </LinearLayout>
         <LinearLayout
@@ -116,7 +117,7 @@
                 android:textSize="18sp"
                 android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"/>
-            <com.qbnet.viewutils.XEditText
+            <com.yto.template.customview.XEditText
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -129,6 +130,7 @@
                 android:hint="禁用输入框"
                 android:textColorHint="@color/text_hint"
                 android:drawablePadding="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
                 />
         </LinearLayout>
 
@@ -145,7 +147,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/user"/>
-            <com.qbnet.viewutils.XEditText
+            <com.yto.template.customview.XEditText
                 android:id="@+id/xet_common_two"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -162,6 +164,7 @@
                 android:singleLine="true"
                 android:textColorHint="@color/text_hint"
                 android:drawablePadding="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
                 />
         </LinearLayout>
         <LinearLayout
@@ -177,7 +180,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/user_forbid"/>
-            <com.qbnet.viewutils.XEditText
+            <com.yto.template.customview.XEditText
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -190,6 +193,7 @@
                 android:hint="禁用输入框"
                 android:textColorHint="@color/text_hint"
                 android:drawablePadding="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
                 />
         </LinearLayout>
         <TextView
@@ -215,7 +219,7 @@
                 android:textSize="18sp"
                 android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"/>
-            <com.qbnet.viewutils.XEditText
+            <com.yto.template.customview.XEditText
                 android:id="@+id/xet_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -228,6 +232,7 @@
                 android:hint="请输入验证码"
                 android:textColorHint="@color/text_hint"
                 android:drawablePadding="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
                 />
             <TextView
                 android:id="@+id/tv_send"
@@ -262,7 +267,7 @@
                 android:textSize="18sp"
                 android:layout_marginLeft="20dp"
                 android:layout_gravity="center_vertical"/>
-            <com.qbnet.viewutils.XEditText
+            <com.yto.template.customview.XEditText
                 android:id="@+id/xet_scan"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -278,6 +283,7 @@
                 android:inputType="text"
                 android:textColorHint="@color/text_hint"
                 android:drawablePadding="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
                 />
         </LinearLayout>
         <TextView
@@ -306,7 +312,8 @@
                 android:textSize="16sp"
                 android:textColor="@color/text"
                 android:scrollbars="vertical"
-                android:textColorHint="@color/text_hint"/>
+                android:textColorHint="@color/text_hint"
+                android:textCursorDrawable="@drawable/color_cursor"/>
             <TextView
                 android:id="@+id/tv_text_num"
                 android:layout_width="wrap_content"

@@ -88,7 +88,7 @@ public class NormalPreviewActivity extends BaseActivity{
         ll_bottom.setVisibility(View.GONE);
 
         //初始化填充ViewPager的图片资源
-        imageResIds = new int[]{R.mipmap.img_default,R.mipmap.img_default,R.mipmap.img_default};
+        imageResIds = new int[]{R.mipmap.picture,R.mipmap.picture,R.mipmap.picture};
 
         imageViews = new ArrayList<>();
         PhotoView imageView;

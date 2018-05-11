@@ -54,7 +54,7 @@ public class GridActivity extends BaseActivity {
         myAdapter.setOnRecyclerViewItemListener(new RecyclerGridViewAdapter.OnRecyclerViewItemListener() {
             @Override
             public void onItemClickListener(View view, int position) {
-                Snackbar.make(view,"你点了"+position,Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+//                Snackbar.make(view,"你点了"+position,Snackbar.LENGTH_SHORT).setAction("Action",null).show();
             }
 
             @Override
@@ -83,7 +83,6 @@ public class GridActivity extends BaseActivity {
         int spacing = 60; // 50px
         boolean includeEdge = false;
         mRecyclerVIew.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-
 
         mRecyclerVIew.setAdapter(myAdapter);
 

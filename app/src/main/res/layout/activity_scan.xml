@@ -5,10 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.yto.template.ui.ScanActivity">
+
     <cn.bingoogolapple.qrcode.zxing.ZXingView
         android:id="@+id/zxingview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         app:qrcv_animTime="1000"
         app:qrcv_barCodeTipText="将条码放入框内，即可自动扫描"
         app:qrcv_barcodeRectHeight="120dp"
@@ -36,12 +40,13 @@
         app:qrcv_tipTextColor="@android:color/white"
         app:qrcv_tipTextSize="12sp"
         app:qrcv_toolbarHeight="56dp"
-        app:qrcv_topOffset="20dp"/>
+        app:qrcv_topOffset="40dp" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="240dp"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout">
         <CheckBox
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
@@ -54,15 +59,23 @@
             android:drawablePadding="5dp"
             android:layout_gravity="center_horizontal"
             />
+
         <TextView
             android:id="@+id/tv_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="从相册中选择"
-            android:textSize="20sp"
-            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"/>
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:text="从相册中选择"
+            android:drawableLeft="@mipmap/scan_def"
+            android:drawablePadding="5dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:background="@drawable/rec_bg_shape"/>
     </LinearLayout>
 
     <include layout="@layout/title_bar_black"/>

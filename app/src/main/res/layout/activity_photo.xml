@@ -44,6 +44,6 @@
         android:textColor="@color/text"
         android:gravity="center"
         android:background="@color/white"
-        android:onClick="multiCapture"/>
+        android:onClick="continousCapture"/>
 
 </LinearLayout>

@@ -471,7 +471,7 @@ public class Camera2Activity extends BaseActivity implements View.OnClickListene
         super.onPause();
     }
 
-    public class GridAdapter extends BaseAdapter {
+    class GridAdapter extends BaseAdapter {
         private LayoutInflater inflater;
         private List<String> paths;
 

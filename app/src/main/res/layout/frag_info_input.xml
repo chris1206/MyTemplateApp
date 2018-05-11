@@ -39,13 +39,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="勾选框"
-                    android:textColor="#333333" />
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Radio"
-                    android:textColor="#AAA" />
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected" />
             </LinearLayout>
             <ImageView
                 android:layout_width="wrap_content"
@@ -74,11 +76,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="复选框"
-                    android:textColor="#333333"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#aaa"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected"
                     android:text="Checkbox"/>
             </LinearLayout>
             <ImageView
@@ -108,11 +112,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="输入框"
-                    android:textColor="#333333"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#aaa"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected"
                     android:text="Input Item"/>
             </LinearLayout>
             <ImageView
@@ -142,11 +148,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="选择器"
-                    android:textColor="#333333"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#aaa"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected"
                     android:text="Selector"/>
             </LinearLayout>
             <ImageView
@@ -177,11 +185,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="搜索栏"
-                    android:textColor="#333333" />
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#aaa"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected"
                     android:text="Search"/>
             </LinearLayout>
             <ImageView
@@ -212,11 +222,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="扫描"
-                    android:textColor="#333333" />
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#aaa"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected"
                     android:text="Scan"/>
             </LinearLayout>
             <ImageView
@@ -247,11 +259,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="拍照"
-                    android:textColor="#333333" />
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#aaa"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected"
                     android:text="Take Photo"/>
             </LinearLayout>
             <ImageView
@@ -282,11 +296,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="图片上传"
-                    android:textColor="#333333" />
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#aaa"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected"
                     android:text="Image Upload"/>
             </LinearLayout>
             <ImageView
@@ -316,11 +332,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="键盘"
-                    android:textColor="#333333"/>
+                    android:textSize="15sp"
+                    android:textColor="@color/btn_normal"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#aaa"
+                    android:textSize="12sp"
+                    android:textColor="@color/btn_selected"
                     android:text="KeyBoard"/>
             </LinearLayout>
             <ImageView

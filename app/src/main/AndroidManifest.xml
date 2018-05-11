@@ -178,7 +178,10 @@
         <activity android:name=".ui.ChartActivity" />
         <activity android:name=".ui.Camera2Activity" />
         <activity android:name=".ui.ScanEntryActivity" />
-        <activity android:name=".ui.ShowLoadingActivity"></activity>
+        <activity android:name=".ui.ShowLoadingActivity"/>
+        <activity android:name=".ui.PreviewActivity2" />
+        <activity android:name=".ui.CameraActivity2" />
+
     </application>
 
 </manifest>

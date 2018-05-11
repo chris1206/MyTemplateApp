@@ -34,11 +34,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="通知栏"
-                android:textColor="#333333"/>
+                android:textSize="15sp"
+                android:textColor="@color/btn_normal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aaa"
+                android:textSize="12sp"
+                android:textColor="@color/btn_selected"
                 android:text="Notice Bar"/>
         </LinearLayout>
         <ImageView
@@ -68,11 +70,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="操作面板"
-                android:textColor="#333333"/>
+                android:textSize="15sp"
+                android:textColor="@color/btn_normal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aaa"
+                android:textSize="12sp"
+                android:textColor="@color/btn_selected"
                 android:text="Actionsheet"/>
         </LinearLayout>
         <ImageView
@@ -102,11 +106,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="加载"
-                android:textColor="#333333"/>
+                android:textSize="15sp"
+                android:textColor="@color/btn_normal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aaa"
+                android:textSize="12sp"
+                android:textColor="@color/btn_selected"
                 android:text="Loading"/>
         </LinearLayout>
         <ImageView
@@ -136,11 +142,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="刷新"
-                android:textColor="#333333"/>
+                android:textSize="15sp"
+                android:textColor="@color/btn_normal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aaa"
+                android:textSize="12sp"
+                android:textColor="@color/btn_selected"
                 android:text="Refresh"/>
         </LinearLayout>
         <ImageView
@@ -170,11 +178,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="吐司提示"
-                android:textColor="#333333"/>
+                android:textSize="15sp"
+                android:textColor="@color/btn_normal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aaa"
+                android:textSize="12sp"
+                android:textColor="@color/btn_selected"
                 android:text="Toast"/>
         </LinearLayout>
         <ImageView
@@ -204,11 +214,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="模态框"
-                android:textColor="#333333"/>
+                android:textSize="15sp"
+                android:textColor="@color/btn_normal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aaa"
+                android:textSize="12sp"
+                android:textColor="@color/btn_selected"
                 android:text="Modal Box"/>
         </LinearLayout>
         <ImageView
@@ -239,11 +251,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="结果页"
-                android:textColor="#333333" />
+                android:textSize="15sp"
+                android:textColor="@color/btn_normal" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aaa"
+                android:textSize="12sp"
+                android:textColor="@color/btn_selected"
                 android:text="Result Page"/>
         </LinearLayout>
         <ImageView
@@ -274,11 +288,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="异常页"
-                android:textColor="#333333"/>
+                android:textSize="15sp"
+                android:textColor="@color/btn_normal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#aaa"
+                android:textSize="12sp"
+                android:textColor="@color/btn_selected"
                 android:text="Abnormal Page"/>
         </LinearLayout>
         <ImageView

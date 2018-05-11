@@ -1,36 +1,46 @@
 package com.yto.template.ui;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.support.design.widget.TabLayout;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.Surface;
+import android.view.TextureView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yto.template.R;
 import com.yto.template.customview.CameraLine;
 import com.yto.template.utils.DoubleClickConfig;
@@ -43,13 +53,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Chris on 2018/3/20.
  */
 
-public class CameraActivity extends Activity implements Camera.PictureCallback, Camera.ShutterCallback {
+public class CameraActivity2 extends Activity implements Camera.PictureCallback, Camera.ShutterCallback {
 
     public static final int FLAG_CHOOCE_PICTURE = 2001;
     private static final int FLAG_AUTO_FOCUS = 1001;
@@ -70,8 +82,8 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
     int numberOfCameras;
     int cameraCurrentlyLocked;
 
-
-    private ImageView preview_iv,backBtn;
+    private ImageView preview_iv,backBtn,iv_shutter,id_iv_next,id_iv_shutter;
+    private TextView tv_photo,id_tv_next;
     private Handler handler;
     Bitmap rightBitmap;
     ImageView id_iv_flash_switch;
@@ -86,6 +98,11 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
     private boolean isPortrait = true;
     private int orientationState = ScreenSwitchUtils.ORIENTATION_HEAD_IS_UP;
     private int type;
+    private GridView gridView;
+    private GridAdapter adapter;
+
+    private static List<String> imgPaths = new ArrayList<>();
+    private String continousCapture = "";
 
     @SuppressLint("HandlerLeak")
     @Override
@@ -96,7 +113,8 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//强制横屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//【旋转问题】首先强制竖屏，手机横过来时候 控件不变
-
+//        System.out.println("1234567".charAt(4)+2);
+//        System.out.println(13>>2<<2);
         setContentView(R.layout.activity_camera);
         type = getIntent().getIntExtra("type",0);
         //【重力感应处理】 app内锁定横屏 或用户锁定横屏时候获得方向
@@ -116,15 +134,16 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
         ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.CAMERA);*/
 
-
         if (!Utils.checkCameraHardware(this)) {
-            Toast.makeText(CameraActivity.this, "设备没有摄像头", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CameraActivity2.this, "设备没有摄像头", Toast.LENGTH_SHORT).show();
             return;
         }
-        mCameraLine = (CameraLine) findViewById(R.id.id_cl);
-        //
-        preview_iv = (ImageView) findViewById(R.id.id_preview_iv);
-        RelativeLayout id_rl_cp_view = (RelativeLayout) findViewById(R.id.id_rl_cp_view);
+        id_iv_shutter = findViewById(R.id.id_iv_shutter);
+        id_tv_next = findViewById(R.id.id_tv_next);
+        id_iv_next = findViewById(R.id.id_iv_next);
+        mCameraLine = findViewById(R.id.id_cl);
+        preview_iv = findViewById(R.id.id_preview_iv);
+        RelativeLayout id_rl_cp_view = findViewById(R.id.id_rl_cp_view);
         DoubleClickConfig.registerDoubleClickListener(id_rl_cp_view, new DoubleClickConfig.OnDoubleClickListener() {
 
             @Override
@@ -139,6 +158,12 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
         });
 
         id_iv_flash_switch = (ImageView) findViewById(R.id.id_iv_flash_switch);
+
+        continousCapture = getIntent().getStringExtra("continousCapture");
+
+        if(!TextUtils.isEmpty(continousCapture) && continousCapture.equals("1")){
+            id_iv_shutter.setImageDrawable(getResources().getDrawable(R.mipmap.camerap3));
+        }
 
         handler = new Handler() {
             @Override
@@ -158,13 +183,35 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
                         return;
                     }
                     String filePath = msg.obj.toString();
-                    Intent intent = new Intent(CameraActivity.this, PreviewActivity.class);
-                    intent.putExtra("filePath", filePath);
+                    if(!TextUtils.isEmpty(continousCapture) && continousCapture.equals("1")){
+                        //连拍逻辑
+                        imgPaths.add(filePath);
+                        adapter = new GridAdapter(imgPaths,CameraActivity2.this);
+                        gridView.setAdapter(adapter);
+                        if(imgPaths.size()==1){
+                            id_iv_shutter.setImageDrawable(getResources().getDrawable(R.mipmap.camera2));
+                        } else if(imgPaths.size() == 2) {
+                            id_iv_shutter.setImageDrawable(getResources().getDrawable(R.mipmap.camera1));
+                        } else if(imgPaths.size() == 3) {
+                            id_iv_shutter.setVisibility(View.GONE);
+                            id_iv_next.setVisibility(View.VISIBLE);
+                            id_tv_next.setVisibility(View.VISIBLE);
+                        }
+//                        startFocus();
+//                        return;
+                    }else{
+                        Intent intent = new Intent(CameraActivity2.this, PreviewActivity2.class);
+                        intent.putExtra("filePath", filePath);
+                        intent.putExtra("imgSize", imgPaths.size());
 //                    CameraActivity.this.startActivity(intent);
-                    CameraActivity.this.startActivityForResult(intent,211);
+                        startActivityForResult(intent,211);
+                    }
+
                 }
             }
         };
+
+        initAdapter();
 
         // centerWindowView = findViewById(R.id.center_window_view);
         Log.d("CameraSurfaceView", "CameraSurfaceView onCreate currentThread : " + Thread.currentThread());
@@ -201,8 +248,10 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
 //        }
         startCamera();
 
+    }
 
-
+    private void initAdapter() {
+        gridView = findViewById(R.id.gridview);
 
     }
 
@@ -253,7 +302,8 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
                         }
                     }
                 });*/
-                stopFocus();
+                if(TextUtils.isEmpty(continousCapture))
+                    stopFocus();
                 takePicture(null, null, this);
                 break;
             case R.id.id_iv_flash_switch:
@@ -268,16 +318,24 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
             case R.id.id_iv_change:
                 // changeCamera();
                 changeCameraTwo();
-
                 break;
             case R.id.back_btn:
+                imgPaths.clear();
                 finish();
                 break;
+            case R.id.id_iv_next:
+                Toast.makeText(this,"开始使用照片",Toast.LENGTH_SHORT).show();
+                break;
             default:
-
                 break;
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        imgPaths.clear();
     }
 
     @Override
@@ -285,6 +343,92 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
         super.onResume();
 
         startCamera();
+    }
+
+    class GridAdapter extends BaseAdapter {
+        private LayoutInflater inflater;
+        private List<String> paths;
+
+        public GridAdapter(List<String> paths, Context context) {
+            this.paths = paths;
+            inflater = LayoutInflater.from(context);
+        }
+
+        public void notifyDataSetChanged(List<String> datas) {
+            paths = datas;
+            this.notifyDataSetChanged();
+        }
+
+        @Override
+        public int getCount() {
+            return paths == null ? 0:paths.size();
+        }
+
+        public Object getItem(int arg0) {
+            return null;
+        }
+
+        public long getItemId(int arg0) {
+            return 0;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder holder;
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.item_camera2_grid,
+                        parent, false);
+                holder = new ViewHolder();
+                holder.image = convertView.findViewById(R.id.iv_show);
+                holder.iv_close = convertView.findViewById(R.id.iv_close);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+//            Picasso.with(Camera2Activity.this).load(paths.get(position))
+//                    .resize(Utils.dip2px(Camera2Activity.this, 70), Utils.dip2px(Camera2Activity.this, 70))
+//                    .centerCrop()
+//                    .placeholder(R.mipmap.timeline_img_default)
+//                    .error(R.mipmap.timeline_img_default)
+//                    .into(holder.image);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if( position>=0 ) {
+                        Glide.with(CameraActivity2.this).load(paths.get(position))
+                                .centerCrop()
+                                .placeholder(R.mipmap.timeline_img_default)
+                                .error(R.mipmap.timeline_img_default)
+                                .skipMemoryCache(true)//跳过内存缓存
+                                .diskCacheStrategy(DiskCacheStrategy.NONE)//跳过硬盘缓存
+                                .into(holder.image);
+                    }
+                }
+            },300);
+
+
+
+            holder.iv_close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    File file = new File(paths.get(position));
+                    if(file.exists()) {
+                        boolean isdelete = file.delete();
+                        if(isdelete) Toast.makeText(CameraActivity2.this, "删除成功", Toast.LENGTH_SHORT).show();
+                    }
+                    paths.remove(position);
+                    notifyDataSetChanged(paths);
+                }
+            });
+            return convertView;
+        }
+
+        public class ViewHolder {
+            public ImageView image;
+            public ImageView iv_close;
+        }
+
     }
 
     private void changeCamera() {
@@ -556,11 +700,31 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
             Log.d("", "CameraSurfaceView imgPath : " + imgPath);
         } else if(requestCode == 211 && resultCode == 212) {
             String filePath = data.getStringExtra("filePath");
-            Intent intent = new Intent();
-            intent.putExtra("filePath", filePath);
-            intent.putExtra("type",type);
-            setResult(202,intent);
-            finish();
+
+            if(imgPaths.size()>2){
+                return;
+            }
+
+            if(null != filePath)
+                imgPaths.add(filePath);
+
+            adapter = new GridAdapter(imgPaths,this);
+            gridView.setAdapter(adapter);
+
+            if(imgPaths.size()>0){
+                id_iv_next.setVisibility(View.VISIBLE);
+                id_tv_next.setVisibility(View.VISIBLE);
+            }else{
+                id_iv_next.setVisibility(View.GONE);
+                id_tv_next.setVisibility(View.GONE);
+            }
+//            Intent intent = new Intent();
+//            intent.putExtra("filePath", filePath);
+//            intent.putExtra("type",type);
+//            setResult(202,intent);
+//            finish();
+            Log.e("FilePaht:",filePath+"  imgPaths.size="+imgPaths.size());
+
         }
     }
 
@@ -579,6 +743,7 @@ public class CameraActivity extends Activity implements Camera.PictureCallback, 
             safeToTakePicture = true;
             return;
         }
+
 
         Log.d("CameraSurfaceView", "CameraSurfaceView onPictureTaken data.length : " + data.length);
         //Toast.makeText(this, "data.length : " + data.length, Toast.LENGTH_SHORT).show();

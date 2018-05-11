@@ -266,14 +266,12 @@
                 android:background="@color/white">
                 <ImageView
                     android:id="@+id/head"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginBottom="18dp"
                     android:layout_marginLeft="14dp"
-                    android:padding="20dp"
-                    android:src="@mipmap/head"
-                    android:background="@drawable/bg_round_grey"/>
+                    android:src="@mipmap/head"/>
                 <TextView
                     android:id="@+id/tv3"
                     android:layout_width="wrap_content"

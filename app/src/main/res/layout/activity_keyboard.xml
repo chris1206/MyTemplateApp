@@ -62,6 +62,7 @@
         android:hint="对应的提示文字"
         android:layout_marginBottom="10dp"
         android:textColorHint="@color/text_hint"
+        android:textCursorDrawable="@drawable/color_cursor"
         />
     <TextView
         android:layout_width="match_parent"
@@ -87,6 +88,7 @@
         android:imeOptions="actionGo"
         android:layout_marginBottom="10dp"
         android:textColorHint="@color/text_hint"
+        android:textCursorDrawable="@drawable/color_cursor"
         />
     <TextView
         android:layout_width="match_parent"
@@ -112,6 +114,7 @@
         android:imeOptions="actionSearch"
         android:layout_marginBottom="10dp"
         android:textColorHint="@color/text_hint"
+        android:textCursorDrawable="@drawable/color_cursor"
         />
     <TextView
         android:layout_width="match_parent"
@@ -138,6 +141,7 @@
         android:imeActionLabel="发送"
         android:layout_marginBottom="10dp"
         android:textColorHint="@color/text_hint"
+        android:textCursorDrawable="@drawable/color_cursor"
         />
     <TextView
         android:layout_width="match_parent"
@@ -163,6 +167,7 @@
         android:imeOptions="actionNext"
         android:layout_marginBottom="10dp"
         android:textColorHint="@color/text_hint"
+        android:textCursorDrawable="@drawable/color_cursor"
         />
     <TextView
         android:layout_width="match_parent"
@@ -188,5 +193,6 @@
         android:imeOptions="actionDone"
         android:imeActionLabel="完成"
         android:textColorHint="@color/text_hint"
+        android:textCursorDrawable="@drawable/color_cursor"
         />
 </LinearLayout>

@@ -136,7 +136,7 @@ public class InfoPreviewActivity extends BaseActivity {
 //        translateAnimation=new TranslateAnimation(0,0,0, -height);
 
         //初始化填充ViewPager的图片资源
-        imageResIds = new int[]{R.mipmap.img_default,R.mipmap.img_default,R.mipmap.img_default};
+        imageResIds = new int[]{R.mipmap.picture,R.mipmap.picture,R.mipmap.picture};
 
         imageViews = new ArrayList<>();
         PhotoView imageView;

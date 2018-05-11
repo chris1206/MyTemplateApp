@@ -1,9 +1,6 @@
 package com.yto.template.ui;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,21 +8,17 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.qbnet.viewutils.XEditText;
+import com.yto.template.customview.XEditText;
 import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
 import com.yto.template.customview.flowlayout.FlowAdapter;
 import com.yto.template.customview.flowlayout.FlowLayoutManager;
 import com.yto.template.customview.flowlayout.SpaceItemDecoration;
-import com.yto.template.ui.adapter.MyItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -154,22 +147,13 @@ public class SearchViewActivity extends BaseActivity {
             case R.id.tv_all_history:
                 if(!hasChecked){
                     hasChecked = true;
-                    tflowAdapter = new FlowAdapter(this,tlist,1,hasChecked);
-                    rv_two.setAdapter(tflowAdapter);
+                    tflowAdapter.setAll(hasChecked);
                     tv_all_history.setText("收起");
                 }else{
                     hasChecked = false;
-                    tflowAdapter = new FlowAdapter(this,tlist,1,hasChecked);
-                    rv_two.setAdapter(tflowAdapter);
+                    tflowAdapter.setAll(hasChecked);
                     tv_all_history.setText("查看全部记录");
                 }
-                tflowAdapter.setItemClickListen(new FlowAdapter.OnItemClickListen() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        xet_histroy_two.setText(tlist.get(position));
-                        xet_histroy_two.setSelection(xet_histroy_two.length());
-                    }
-                });
                 break;
         }
     }

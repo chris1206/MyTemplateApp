@@ -10,6 +10,9 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -18,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -30,8 +34,11 @@ import com.yto.template.R;
 import com.yto.template.base.BaseActivity;
 import com.yto.template.constant.Cheeses;
 import com.yto.template.customview.IconCenterEditText;
+import com.yto.template.customview.flowlayout.FlowAdapter;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Chris on 2018/1/30.
@@ -48,7 +55,15 @@ public class NavigationActivity extends BaseActivity{
     private IconCenterEditText et_search;
     private TabLayout mTabLayout1;
     private TabLayout mTabLayout2;
+    private ViewStub myViewStub;
+    private List<String> tlist = new ArrayList<>();
+    private FlowAdapter tflowAdapter;
+    private boolean hasChecked;
+    private RecyclerView rv_two;
+    private TextView tv_all_history;
 
+    private ImageView iv_qrcode;
+    private TextView tv_cancel;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_navi;
@@ -75,6 +90,75 @@ public class NavigationActivity extends BaseActivity{
             }
         });
 
+        iv_qrcode = findViewById(R.id.iv_qrcode);
+        tv_cancel = findViewById(R.id.tv_cancel);
+
+        myViewStub = findViewById(R.id.myViewStub);
+
+        et_search.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    iv_qrcode.setVisibility(View.INVISIBLE);
+                    tv_cancel.setVisibility(View.VISIBLE);
+                    try {
+                        myViewStub.inflate();
+                        View view=findViewById(R.id.myInflatedViewId);
+                        rv_two = view.findViewById(R.id.rv_two);
+                        tv_all_history = view.findViewById(R.id.tv_all_history);
+                        tlist.add("A20170102fff");
+                        tlist.add("A201701");
+                        tlist.add("A201701");
+                        tlist.add("A201701555");
+                        tlist.add("A201701666");
+                        tlist.add("A201701777");
+                        tflowAdapter = new FlowAdapter(NavigationActivity.this,tlist,1,hasChecked);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NavigationActivity.this);
+                        rv_two.addItemDecoration(new DividerItemDecoration(NavigationActivity.this, DividerItemDecoration.VERTICAL));
+                        rv_two.setLayoutManager(linearLayoutManager);
+                        rv_two.setAdapter(tflowAdapter);
+                        rv_two.setNestedScrollingEnabled(false);
+
+                    } catch (Exception e) {
+                        // 如果使用inflate膨胀报错，就说明已经被膨胀过了，使用setVisibility方法显示
+                        myViewStub.setVisibility(View.VISIBLE);
+                    }
+                    tflowAdapter.setItemClickListen(new FlowAdapter.OnItemClickListen() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+                            et_search.setText(tlist.get(position));
+                            et_search.setSelection(et_search.length());
+                        }
+                    });
+                    tv_all_history.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if(!hasChecked){
+                                hasChecked = true;
+                                tflowAdapter.setAll(hasChecked);
+                                tv_all_history.setText("收起");
+                            }else{
+                                hasChecked = false;
+                                tflowAdapter.setAll(hasChecked);
+                                tv_all_history.setText("查看全部记录");
+                            }
+
+                        }
+                    });
+                }else{
+                    myViewStub.setVisibility(View.GONE);
+                    iv_qrcode.setVisibility(View.VISIBLE);
+                    tv_cancel.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+        tv_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_search.setText("");
+                et_search.clearFocus();
+            }
+        });
         initCustomSearchView();
 
         initCustomToolbar();

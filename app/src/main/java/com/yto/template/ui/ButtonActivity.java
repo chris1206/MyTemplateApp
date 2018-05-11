@@ -62,13 +62,13 @@ public class ButtonActivity extends BaseActivity {
 
     private void setGridViewDataSrc(ArrayList<Map<String, Object>> lst) {
 
-        lst.add(Utils.createMap("类型一", R.mipmap.gird_item1));
-        lst.add(Utils.createMap("类型二", R.mipmap.gird_item2));
-        lst.add(Utils.createMap("类型三", R.mipmap.gird_item3));
-        lst.add(Utils.createMap("类型四", R.mipmap.gird_item4));
-        lst.add(Utils.createMap("类型一", R.mipmap.gird_item1));
-        lst.add(Utils.createMap("类型二", R.mipmap.gird_item2));
-        lst.add(Utils.createMap("类型三", R.mipmap.gird_item3));
-        lst.add(Utils.createMap("类型四", R.mipmap.gird_item4));
+        lst.add(Utils.createMap("类型一", R.drawable.item1_selector));
+        lst.add(Utils.createMap("类型二", R.drawable.item2_selector));
+        lst.add(Utils.createMap("类型三", R.drawable.item3_selector));
+        lst.add(Utils.createMap("类型四", R.drawable.item4_selector));
+        lst.add(Utils.createMap("类型一", R.drawable.item1_selector));
+        lst.add(Utils.createMap("类型二", R.drawable.item2_selector));
+        lst.add(Utils.createMap("类型三", R.drawable.item3_selector));
+        lst.add(Utils.createMap("类型四", R.drawable.item4_selector));
     }
 }

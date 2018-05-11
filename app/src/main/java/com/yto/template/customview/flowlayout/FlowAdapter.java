@@ -63,6 +63,11 @@ public class FlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         else return list.size();
     }
 
+    public void setAll(boolean all) {
+        isAll = all;
+        notifyDataSetChanged();
+    }
+
     class MyHolder extends RecyclerView.ViewHolder {
 
         private TextView text;

@@ -2,8 +2,11 @@ package com.yto.template.customview;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -70,7 +73,7 @@ public class IconCenterEditText extends android.support.v7.widget.AppCompatEditT
     private void translate_to_center(Canvas canvas) {
         Drawable[] drawables = getCompoundDrawables();
         Drawable drawableLeft = drawables[0];
-        drawables[2].setVisible(false, false);
+//        drawables[2].setVisible(false, false);
         translate(drawableLeft, canvas);
     }
 
@@ -89,20 +92,17 @@ public class IconCenterEditText extends android.support.v7.widget.AppCompatEditT
         }
     }
 
-    /*@Override
-    public void onFocusChange(View v, boolean hasFocus) {
-        Log.d(TAG, "onFocusChange execute");
-        // 恢复EditText默认的样式
-        if (TextUtils.isEmpty(getText().toString())) {
-            isLeft = hasFocus;
+    @Override
+    protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
+        if(focused){
+            isLeft = true;
+        }else{
+            if(this.getText().toString().trim().length()<=0){
+                isLeft = false;
+            }
         }
-
-        if(hasFocus){
-            setHint("请输入运单号");
-        } else {
-            setHint("搜历史异常");
-        }
-    }*/
+        super.onFocusChanged(focused, direction, previouslyFocusedRect);
+    }
 
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
