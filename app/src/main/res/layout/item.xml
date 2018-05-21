@@ -12,7 +12,8 @@
         android:id="@+id/iv_imag_cancle"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginTop="1dp"
         android:src="@mipmap/cam_close"
         android:layout_alignParentRight="true"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 </RelativeLayout>

@@ -17,8 +17,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
             android:layout_marginTop="9dp"
             android:text="组件说明"
             android:textColor="@color/btn_normal" />
@@ -27,8 +27,8 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="13dp"
-            android:layout_marginLeft="13dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginLeft="14dp"
             android:layout_marginTop="6dp"
             android:text="@string/upload_present"
             android:textColor="@color/text_normal" />
@@ -46,7 +46,7 @@
         android:textSize="20sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="14dp"/>
 
     <GridView
         android:id="@+id/gv_take"
@@ -54,9 +54,9 @@
         android:layout_height="wrap_content"
         android:horizontalSpacing="5dp"
         android:numColumns="3"
-        android:verticalSpacing="5dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"/>
+        android:verticalSpacing="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -64,14 +64,14 @@
         android:textSize="20sp"
         android:textColor="#333333"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="14dp"/>
     <GridView
         android:id="@+id/gv_take_photo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:horizontalSpacing="5dp"
         android:numColumns="3"
-        android:verticalSpacing="5dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"/>
+        android:verticalSpacing="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"/>
 </LinearLayout>
