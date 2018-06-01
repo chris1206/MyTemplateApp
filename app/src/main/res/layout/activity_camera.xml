@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/id_rl_cp_view"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
     <com.yto.template.ui.CameraPreview
         android:id="@+id/camera_preview"
@@ -44,6 +45,8 @@
             android:layout_toRightOf="@id/id_iv_flash_switch"
             android:layout_marginTop="25dp"
             android:numColumns="3"
+            android:gravity="right|end"
+
             />
 
         <ImageView

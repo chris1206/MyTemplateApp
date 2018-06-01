@@ -89,36 +89,36 @@ public class LoginActivity extends BaseActivity
 //        initRequest.setUsername("");
         IdeaApi.getApiService()
 //                .getInitRequest(initRequest)
-                .getInitRequest("","1","0.6.11")
-                .subscribeOn(Schedulers.io())
-                .compose(this.<BasicResponse<InitBean>>bindToLifecycle())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new DefaultObserver<BasicResponse<InitBean>>(this) {
-                    @Override
-                    public void onSuccess(BasicResponse<InitBean> response) {
-                        ToastUtils.show("初始化成功~");
+        .getInitRequest("","1","0.6.11")
+        .subscribeOn(Schedulers.io())
+        .compose(this.<BasicResponse<InitBean>>bindToLifecycle())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new DefaultObserver<BasicResponse<InitBean>>(this) {
+            @Override
+            public void onSuccess(BasicResponse<InitBean> response) {
+                ToastUtils.show("初始化成功~");
 
-                        InitBean bean = response.getResults();
+                InitBean bean = response.getResults();
 
-                        mCache.put(UniqueKey.PHOTO_SIZE.toString(), bean.getCompression_ratio());
-                        mCache.put(UniqueKey.MSG_COUNT.toString(), bean.getPage_size());//一页加载消息最大值
-                        mCache.put(UniqueKey.FENCE_STATUS_LOCK.toString(), bean.getFence_status_lock());
-                        mCache.put(UniqueKey.GATHER_INTERVAL.toString(), bean.getCollect_interval());
-                        mCache.put(UniqueKey.PACK_INTERVAL.toString(), bean.getPack_interval());
-                        mCache.put(UniqueKey.SPEED_GATHER_INTERVAL.toString(), bean.getSpeed_collect_interval());
-                        mCache.put(UniqueKey.ABNORMAL_OFF_SPEED_GATHER_NUMBER.toString(), bean.getReport_off_speed_gather_number());
-                        mCache.put(UniqueKey.AVERAGE_SPEED.toString(), bean.getAverage_speed());
-                        mCache.put(UniqueKey.DRAFT_CHECK_CYCLE.toString(), bean.getDraft_check_interval());
-                        mCache.put(UniqueKey.MESSAGE_EXPIRED_TIME.toString(), bean.getMsg_expired_time());
-                        mCache.put(UniqueKey.COMMENTS_URL.toString(), bean.getComments_url());
-                        mCache.put(UniqueKey.QQ_GROUP_NUM.toString(), bean.getQq_group_num());
-                        mCache.put(UniqueKey.QQ_GROUP_ANDROID_KEY.toString(), bean.getQq_group_android_key());
-                        mCache.put(UniqueKey.REPORT_SPEED_2000.toString(), bean.getReport_speed_2000());
-                        mCache.put(UniqueKey.REPORT_SPEED_2100.toString(), bean.getReport_speed_2100());
-                        mCache.put(UniqueKey.REPORT_SPEED_2800.toString(), bean.getReport_speed_2800());
+                mCache.put(UniqueKey.PHOTO_SIZE.toString(), bean.getCompression_ratio());
+                mCache.put(UniqueKey.MSG_COUNT.toString(), bean.getPage_size());//一页加载消息最大值
+                mCache.put(UniqueKey.FENCE_STATUS_LOCK.toString(), bean.getFence_status_lock());
+                mCache.put(UniqueKey.GATHER_INTERVAL.toString(), bean.getCollect_interval());
+                mCache.put(UniqueKey.PACK_INTERVAL.toString(), bean.getPack_interval());
+                mCache.put(UniqueKey.SPEED_GATHER_INTERVAL.toString(), bean.getSpeed_collect_interval());
+                mCache.put(UniqueKey.ABNORMAL_OFF_SPEED_GATHER_NUMBER.toString(), bean.getReport_off_speed_gather_number());
+                mCache.put(UniqueKey.AVERAGE_SPEED.toString(), bean.getAverage_speed());
+                mCache.put(UniqueKey.DRAFT_CHECK_CYCLE.toString(), bean.getDraft_check_interval());
+                mCache.put(UniqueKey.MESSAGE_EXPIRED_TIME.toString(), bean.getMsg_expired_time());
+                mCache.put(UniqueKey.COMMENTS_URL.toString(), bean.getComments_url());
+                mCache.put(UniqueKey.QQ_GROUP_NUM.toString(), bean.getQq_group_num());
+                mCache.put(UniqueKey.QQ_GROUP_ANDROID_KEY.toString(), bean.getQq_group_android_key());
+                mCache.put(UniqueKey.REPORT_SPEED_2000.toString(), bean.getReport_speed_2000());
+                mCache.put(UniqueKey.REPORT_SPEED_2100.toString(), bean.getReport_speed_2100());
+                mCache.put(UniqueKey.REPORT_SPEED_2800.toString(), bean.getReport_speed_2800());
 
-                    }
-                });
+            }
+        });
     }
 
     private void initView() {

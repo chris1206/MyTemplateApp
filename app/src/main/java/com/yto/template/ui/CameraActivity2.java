@@ -418,6 +418,7 @@ public class CameraActivity2 extends Activity implements Camera.PictureCallback,
                         if(isdelete) Toast.makeText(CameraActivity2.this, "删除成功", Toast.LENGTH_SHORT).show();
                     }
                     paths.remove(position);
+                    changeImage();
                     notifyDataSetChanged(paths);
                 }
             });
@@ -429,6 +430,20 @@ public class CameraActivity2 extends Activity implements Camera.PictureCallback,
             public ImageView iv_close;
         }
 
+    }
+
+    private void changeImage() {
+        if(!TextUtils.isEmpty(continousCapture) && continousCapture.equals("1")){
+
+            if(imgPaths.size()==1){
+                id_iv_shutter.setImageDrawable(getResources().getDrawable(R.mipmap.camera2));
+            } else if(imgPaths.size() == 2) {
+                id_iv_shutter.setImageDrawable(getResources().getDrawable(R.mipmap.camera1));
+            } else if(imgPaths.size() == 0) {
+                id_iv_shutter.setImageDrawable(getResources().getDrawable(R.mipmap.camerap3));
+            }
+
+        }
     }
 
     private void changeCamera() {
