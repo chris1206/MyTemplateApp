@@ -16,6 +16,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 /**
  * Created by Chris on 2017/11/30.
@@ -71,5 +72,8 @@ public interface IdeaApiService {
 
     @POST("v2/auth/app")
     Observable<BasicResponse<LoginBean>> getLogin(@Body RequestBody requestBody);
+
+    @POST("v2/auth/app")
+    Observable<BasicResponse<LoginBean>> getLogin1(@QueryMap RequestBody requestBody);
 
 }

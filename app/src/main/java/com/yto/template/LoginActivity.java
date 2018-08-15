@@ -3,6 +3,7 @@ package com.yto.template;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -33,8 +34,15 @@ import com.yto.template.utils.ToastUtils;
 import com.yto.template.utils.Utils;
 import com.yto.template.view.IUserLoginView;
 
+import java.io.IOException;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class LoginActivity extends BaseActivity
         implements IUserLoginView, NavigationView.OnNavigationItemSelectedListener,
@@ -73,7 +81,47 @@ public class LoginActivity extends BaseActivity
         });
 
         tv.setOnClickListener(this);
-        tv.setOnTouchListener(this);
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        okhttp_test();
+    }
+
+    public void okhttp_test(){
+
+        String url = "https://www.baidu.com/";
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Call call = okHttpClient.newCall(request);
+//        try {
+//            Response response = call.execute();
+//            System.out.println(response.body().string());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+//        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                System.out.println("我是异步线程,线程Id为:" + Thread.currentThread().getId());
+//                System.out.println(response.body().string());
+            }
+        });
+
+
 
     }
 

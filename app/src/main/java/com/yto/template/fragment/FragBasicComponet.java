@@ -24,6 +24,8 @@ import com.yto.template.ui.TabActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+
 /**
  * Created by Chris on 2018/1/26.
  * 常用组件封装
@@ -36,6 +38,7 @@ public class FragBasicComponet extends BaseV4Fragment {
     private List<SimpleListBean> mList;
     private String[] titles = {"宫格", "导航栏", "分段控件", "标签栏", "按钮", "图标", "列表"};
     private String[] subtitles = {"Grid", "Navigation", "Segmented Controls", "Tab Bar", "Button", "Icon", "List"};
+
     @Override
     protected int getLayoutId() {
         return R.layout.frag_basic_componet;
